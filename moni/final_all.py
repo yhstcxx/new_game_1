@@ -28,15 +28,18 @@ lenth = 640
 wedth = 480
 
 #网格划分
-w_deta = 0.5
-h_deta = 0.5
-w0 = -5
-w1 = 6
-h0 = 0
-h1 = 30
+x_deta = 0.5
+y_deta = 0.5
+z_deta = 0.5
+x0 = -5
+x1 = 6
+y0 = 0
+y1 = 30
+z0 = -5
+z1 = 6
 
 #三维点个数
-points_numb = int(((w1-w0)*(w1-w0)*(h1-h0))/w_deta/w_deta/h_deta)
+points_numb = int(((x1 - x0) * (z1 - z0) * (y1 - y0)) / z_deta / x_deta / y_deta)
 
 # 三维坐标，第四个储存辐射强度
 poinst_3d_all = np.zeros((points_numb, 5), np.float32)
@@ -44,9 +47,9 @@ poinst_3d_all = np.zeros((points_numb, 5), np.float32)
 # print(points_numb,"points_numb")
 # sys.exit(0)
 #注意x,y,z别搞错了，有bug
-poinst_3d_all[:, :3] = np.mgrid[w0:w1:w_deta, h0:h1:h_deta, w0:w1:w_deta].T.reshape(-1, 3)
+poinst_3d_all[:, :3] = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].T.reshape(-1, 3)
 # 为后面绘图重构坐标
-shape_1 = np.mgrid[w0:w1:w_deta, h0:h1:h_deta, w0:w1:w_deta].shape[1:]
+shape_1 = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
 # print(shape_1,"shapeshape")
 # print(poinst_3d.shape,"3Dshape")
 # sys.exit(0)
@@ -54,7 +57,7 @@ shape_1 = np.mgrid[w0:w1:w_deta, h0:h1:h_deta, w0:w1:w_deta].shape[1:]
 #1.实验组数 2.方向数，3.照片编号
 #标定图片，返回相机序（方向）号及对应内外惨----2
 
-zu_path=r"C:\Users\yhstc\Desktop"
+zu_path=r"C:\Users\yhstc\Desktop\shiyan"
 #实验组的路径和名字
 zu_all,zu_name = zu_dir.fenzu(zu_path,"shiyan")
 
@@ -282,7 +285,7 @@ for num_zu in range(len(zu_all)):
 
             np.save(path_01 + "\\" + "point_3d_%d.npy" % pic_num, poinst_3d)
             # print(poinst_3d,"point_3d")
-            volum = v.vol(poinst_3d, w_deta, h_deta, points_numb)#h后面加判断
+            volum = v.vol(poinst_3d, x_deta, y_deta,z_deta, points_numb)#h后面加判断
 
             if drc_num ==drc - 1:
                 baocun_csv.baocun_1(f_volum, pic_num, volum)
@@ -293,10 +296,10 @@ for num_zu in range(len(zu_all)):
             # p像素个数
 # 三维可视化
 # poinst_3d = np.load(r"C:\Users\yhstc\Desktop\untitled3\point_3d_1.npy")
-# shape_1 = np.mgrid[w0:w1:w_deta, h0:h1:h_deta, w0:w1:w_deta].shape[1:]
+# shape_1 = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
 # I = poinst_3d[:, 3]
 # print(I.shape, "ishape")
-# left_points = show(I, shape_1, w0, w1, h0, h1, w_deta, h_deta, poinst_3d)
+# left_points = show.show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
 
 time_all = time.time()-time_all
 print(time_all)

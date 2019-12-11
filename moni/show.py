@@ -1,7 +1,7 @@
 import numpy as np
 from mayavi import mlab
-def show(I, shape_1, w0, w1, h0, h1, w_deta, h_deta, poinst_3d):
-    X, Y, Z = np.mgrid[w0:w1:w_deta, h0:h1:h_deta,w0:w1:w_deta]
+def show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d):
+    X, Y, Z = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta]
     # print(X,"x")
     # print(Y,"y")
     # print(Z,"z")
@@ -34,13 +34,16 @@ def show(I, shape_1, w0, w1, h0, h1, w_deta, h_deta, poinst_3d):
 
 # poinst_3d = np.load(r"C:\Users\yhstc\Desktop\untitled3\point_3d_1.npy")
 # I = poinst_3d[:,3]
-# w_deta = 0.2
-# h_deta = 0.2
-# w0 = -5
-# w1 = 6
-# h0 = 0
-# h1 = 30
-# shape_1=np.mgrid[w0:w1:w_deta, h0:h1:h_deta,w0:w1:w_deta].shape[1:]
+# x_deta = 0.5
+# y_deta = 0.5
+# z_deta = 0.5
+# x0 = -5
+# x1 = 6
+# y0 = 0
+# y1 = 30
+# z0 = -5
+# z1 = 6
+# shape_1=np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
 # print(I.shape,"ishape")
 #
-# left_points = show(I, shape_1, w0, w1, h0, h1, w_deta, h_deta, poinst_3d)
+# left_points = show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
