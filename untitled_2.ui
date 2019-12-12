@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fir</class>
+ <widget class="QMainWindow" name="fir">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>588</width>
+    <height>381</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>火焰三维测量</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="source.qrc">
+    <normaloff>:/window_icon/favicon-20191211100205340.ico</normaloff>:/window_icon/favicon-20191211100205340.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="begin">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>300</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>开始计算</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>160</y>
+      <width>505</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>三维离散点起始</string>
+         </property>
+         <property name="buddy">
+          <cstring>x0</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="x0"/>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLineEdit" name="y0"/>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="z0"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="x1"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="y1"/>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="z1"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>三维离散点步长</string>
+         </property>
+         <property name="buddy">
+          <cstring>x_deta</cstring>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="x_deta"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="y_deta"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="z_deta"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>50</y>
+      <width>494</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>图片尺寸（长/宽）</string>
+         </property>
+         <property name="buddy">
+          <cstring>lenth</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lenth">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="wedth"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>棋盘格规格（x/y）</string>
+         </property>
+         <property name="buddy">
+          <cstring>w</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="w"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="h"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>270</y>
+      <width>121</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>方向数目</string>
+       </property>
+       <property name="buddy">
+        <cstring>direction_num</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="direction_num"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>比例尺</string>
+       </property>
+       <property name="buddy">
+        <cstring>lineEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>270</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>确定参数</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>588</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="zu_path"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="zu_path">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="source.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>begin</sender>
+   <signal>clicked()</signal>
+   <receiver>fir</receiver>
+   <slot>begin_cal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>460</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>556</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lenth</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>29</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>w</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>406</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>398</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wedth</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>272</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>h</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>447</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>x0</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>209</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>y0</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>348</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>z0</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>x1</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>220</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>y1</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>216</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>z1</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>471</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>143</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>x_deta</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>y_deta</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>251</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>168</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>z_deta</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>435</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>566</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>direction_num</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>152</x>
+     <y>268</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>fir</receiver>
+   <slot>data_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>fir</receiver>
+   <slot>ensure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>304</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>560</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>begin_cal()</slot>
+  <slot>data_changed()</slot>
+  <slot>ensure()</slot>
+ </slots>
+</ui>
