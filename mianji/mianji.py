@@ -5,13 +5,14 @@ import matplotlib.tri as mtri
 from scipy.spatial import Delaunay
 
 # u, v are parameterisation variables
-def aera(x,y,z):
-    # u = np.random.randint(0,10,100)
-    # v = np.random.randint(0,10,100)
+# def aera(x,y,z):
+def aera():
+    u = np.random.randint(0,10,100)
+    v = np.random.randint(0,10,100)
     # print(u)
-    # x = x
-    # y = v
-    # z = np.random.randint(0,10,100)
+    x = u
+    y = v
+    z = np.random.randint(0,10,100)
 
     u = x
     v = y
@@ -34,7 +35,7 @@ def aera(x,y,z):
 
     # The triangles in parameter space determine which x, y, z points are
     # connected by an edge
-    #ax.plot_trisurf(x, y, z, triangles=tri.triangles, cmap=plt.cm.Spectral)
+    # ax.plot_trisurf(x, y, z, triangles=tri.triangles, cmap=plt.cm.Spectral)
     ax.plot_trisurf(x, y, z, triangles=tri.simplices, cmap=plt.cm.Spectral)
 
 
@@ -45,3 +46,4 @@ def aera(x,y,z):
 
     plt.show()
     return None
+# aera()

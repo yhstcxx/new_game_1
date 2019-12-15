@@ -1,4 +1,3 @@
-import numpy as np
 def vol(points, x_deta, y_deta, z_deta, points_numb):
     volum = 0
 

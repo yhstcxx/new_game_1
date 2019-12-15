@@ -6,9 +6,9 @@ import time
 import os
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 from mianji import area_v, mianji, v, biaomian
-from scipy import io
+# from scipy import io
 from moni import png_dir
 from moni import yuzhi,baocun_csv,zhenghe_csv,zu_dir,show
 #
@@ -24,6 +24,19 @@ def begin_cal(signal_begin,path):
     print(signal_begin)
     signal_begin_int = list(map(eval, signal_begin))
     print(signal_begin_int)
+
+
+
+    a = np.load("x_y_z.npy")
+    print(a.shape)
+    print(a[1:,:].min(axis=0))
+    print(a[1:,:].max(axis=0))
+    x0,y0,z0 = a[1:,:].min(axis=0)
+    x1,y1,z1 = a[1:,:].max(axis=0)
+    # #
+    signal_begin = ["4","6","9","360","240","1","1","1","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
+
+
     drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int
     # #棋盘格模板规格
     # w = 6
@@ -45,9 +58,13 @@ def begin_cal(signal_begin,path):
     # z1 = 6
 
     #三维点个数
-    points_numb = int(((x1 - x0) * (z1 - z0) * (y1 - y0)) / z_deta / x_deta / y_deta)
+    # points_numb = int(((x1 - x0) * (z1 - z0) * (y1 - y0)) / z_deta / x_deta / y_deta)
 
     # 三维坐标，第四个储存辐射强度
+
+
+    points_numb=np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].T.reshape(-1, 3).shape[0]
+    # exit()
     poinst_3d_all = np.zeros((points_numb, 5), np.float32)
     # print(len(poinst_3d_all),"point3d")
     # print(points_numb,"points_numb")
@@ -72,7 +89,7 @@ def begin_cal(signal_begin,path):
     print(zu_path)
     #标定
     path_0 = r"{}\biaoding".format(zu_path)
-    image_all = png_dir.DFS_file_range(path_0)
+    image_all = png_dir.DFS_file_range(path_0,drc-1)
 
 
 
@@ -92,13 +109,16 @@ def begin_cal(signal_begin,path):
 
         # 实验图片。返回相机序号+图片（字典类型)（方向）---2，3
         path_03 = zu_all[num_zu]
-        image_1 = png_dir.DFS_file_range(path_03)
+        image_1 = png_dir.DFS_file_range(path_03,drc-1)
 
 
         #创建point文件夹，必须在path_1之后
-        os.mkdir(path_01)
-        f_volum, f_volum_close = baocun_csv.dakai(path_02, "volum_%s" % zu_name[num_zu])
+        try:
+            os.mkdir(path_01)
+        except:
+            pass
 
+        f_volum, f_volum_close = baocun_csv.dakai(path_02, "volum_%s" % zu_name[num_zu])
 
         #深度循环，不是广度
         for drc_num in range(1,drc):#方向数循环
@@ -243,7 +263,7 @@ def begin_cal(signal_begin,path):
                 # print(np.sum(W),"np.sum(W)")
                 # sys.exit(0)
 
-
+                #
                 # # ART算法
                 # #迭代像素点个数
                 # I = len(binary_to_pi)
@@ -268,7 +288,8 @@ def begin_cal(signal_begin,path):
                 #     # print(np.sum(W[i-1]))
                 #     if np.sum(W[i-1]) !=0:
                 #         # print(np.sum(W[i-1]),"+++++++")
-                #         poinst_3d[:,4] = poinst_3d[:,4] + 0.9*(binary_to_pi_i[i]-W[i-1,:].dot(poinst_3d[:,4]))/W[i-1].dot(W[i-1]).T*W[i-1].T
+                #         # poinst_3d[:,4] = poinst_3d[:,4] + 0.9*(binary_to_pi_i[i]-W[i-1,:].dot(poinst_3d[:,4]))/W[i-1].dot(W[i-1]).T*W[i-1].T
+                #         poinst_3d[:, 4] = poinst_3d[:, 4] + 0.9 * (binary_to_pi_i[i] - W[i-1,:].dot(poinst_3d[:, 4])) / W[i-1,:].dot(W[i - 1,:]).T * W[i - 1,:].T
                 #
                 #     for j in range(points_numb):
                 #          if poinst_3d[j,4]<0:
@@ -320,4 +341,4 @@ def begin_cal(signal_begin,path):
     # # area_v.aera(left_points)
 
     # 面积.aera(X, Y, Z)
-# begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'],"a")
+# begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'],r"C:\Users\yhstc\Desktop\shiyan")
