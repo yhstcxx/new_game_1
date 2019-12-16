@@ -45,7 +45,13 @@ for face in faces:
     S += np.linalg.norm(np.cross(vector_1,vector_2))/2
 
     #质心
-    c = (point_1+point_2+point_3)/3
-print("面积为：",S)
+    # c = (point_1+point_2+point_3)/3
+    # T = (x0,y0,z0)#目标物坐标
+    # n2 = (x0,y0,z0)
+    # r = (c-T)/np.linalg.norm(c-T)#质心到目标的单位向量
+    # cos_c2T = r.dot(n)
+    # cos_T2c = (-r).dot(n2)
 
+print("面积为：",S)
+#角系数和S都是要保存的量
 
