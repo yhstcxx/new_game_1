@@ -97,6 +97,6 @@
 # drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int
 #
 #
-# shape_1=np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
+# shape_1=np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
 # print(I.shape,"ishape")
 # aera(poinst_3d)

@@ -24,17 +24,17 @@ def begin_cal(signal_begin,path):
     print(signal_begin)
     signal_begin_int = list(map(eval, signal_begin))
     print(signal_begin_int)
+    # exit()
 
 
-
-    a = np.load("x_y_z.npy")
-    print(a.shape)
-    print(a[1:,:].min(axis=0))
-    print(a[1:,:].max(axis=0))
-    x0,y0,z0 = a[1:,:].min(axis=0)
-    x1,y1,z1 = a[1:,:].max(axis=0)
+    # a = np.load("x_y_z.npy")
+    # print(a.shape)
+    # print(a[1:,:].min(axis=0))
+    # print(a[1:,:].max(axis=0))
+    # x0,y0,z0 = a[1:,:].min(axis=0)
+    # x1,y1,z1 = a[1:,:].max(axis=0)
     # #
-    signal_begin = ["4","6","9","360","240","1","1","1","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
+    # signal_begin = ["4","6","9","360","240","1","1","1","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
 
 
     drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int
@@ -63,16 +63,18 @@ def begin_cal(signal_begin,path):
     # 三维坐标，第四个储存辐射强度
 
 
-    points_numb=np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].T.reshape(-1, 3).shape[0]
+    # points_numb=np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].T.reshape(-1, 3).shape[0]
+    points_numb=np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].T.reshape(-1, 3).shape[0]
     # exit()
     poinst_3d_all = np.zeros((points_numb, 5), np.float32)
     # print(len(poinst_3d_all),"point3d")
     # print(points_numb,"points_numb")
     # sys.exit(0)
     #注意x,y,z别搞错了，有bug
-    poinst_3d_all[:, :3] = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].T.reshape(-1, 3)
+    poinst_3d_all[:, :3] = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].T.reshape(-1, 3)
+
     # 为后面绘图重构坐标
-    shape_1 = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
+    shape_1 = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
     # print(shape_1,"shapeshape")
     # print(poinst_3d.shape,"3Dshape")
     # sys.exit(0)
@@ -313,8 +315,9 @@ def begin_cal(signal_begin,path):
                     poinst_3d[:, 2], poinst_3d[:, 0] = poinst_3d[:, 0], -poinst_3d[:, 2]
 
                 np.save(path_01 + "\\" + "point_3d_%d.npy" % pic_num, poinst_3d)
-                # print(poinst_3d,"point_3d")
-                volum = v.vol(poinst_3d, x_deta, y_deta,z_deta, points_numb)#h后面加判断
+                print(poinst_3d,"point_3d")
+
+                volum = v.vol(poinst_3d,y_deta,z_deta, points_numb)#h后面加判断
 
                 if drc_num ==drc - 1:
                     baocun_csv.baocun_1(f_volum, pic_num, volum)
@@ -325,7 +328,7 @@ def begin_cal(signal_begin,path):
                 # p像素个数
     # 三维可视化
     # poinst_3d = np.load(r"C:\Users\yhstc\Desktop\untitled3\point_3d_1.npy")
-    # shape_1 = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
+    # shape_1 = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
     # I = poinst_3d[:, 3]
     # print(I.shape, "ishape")
     # left_points = show.show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
@@ -341,4 +344,5 @@ def begin_cal(signal_begin,path):
     # # area_v.aera(left_points)
 
     # 面积.aera(X, Y, Z)
-# begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'],r"C:\Users\yhstc\Desktop\shiyan")
+# begin_cal(['4', '6', '9', '640', '480', '100', '100', '100', '-5', '5', '0', '30', '-5', '5'],r"C:\Users\yhstc\Desktop\shiyan")
+# print(eval(str(10)+"i"))

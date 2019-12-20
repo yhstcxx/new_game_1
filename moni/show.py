@@ -1,7 +1,7 @@
 import numpy as np
 from mayavi import mlab
 def show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d):
-    X, Y, Z = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta]
+    X, Y, Z = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")]
     # print(X,"x")
     # print(Y,"y")
     # print(Z,"z")
@@ -72,29 +72,30 @@ def leftpoint(point,shape_1):
 # z0 = -5
 # z1 = 3.5
 
-# #
-poinst_3d = np.load(r"C:\Users\yhstc\Desktop\shiyan\shiyan-1-\point\point_3d_1.npy")#--1
+# # #
+poinst_3d = np.load(r"C:\Users\yhstc\Desktop\shiyan\shiyan-1-2kw\point\point_3d_1.npy")#--1
 # poinst_3d = np.load(r"C:\Users\yhstc\Desktop\untitled3\point_3d_1.npy")#--0.2
-# I = poinst_3d[:,3]#轮廓
-I = poinst_3d[:,3]#ART
+I = poinst_3d[:,3]#轮廓
+# I = poinst_3d[:,3]#ART
 a = np.load("x_y_z.npy")
 print(a.shape)
 print(a[1:,:].min(axis=0))
 print(a[1:,:].max(axis=0))
 x0,y0,z0 = a[1:,:].min(axis=0)
 x1,y1,z1 = a[1:,:].max(axis=0)
-# #
+# # #
 # signal_begin = ["4","6","9","360","240","1","1","1","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
 
-signal_begin = ["4","6","9","360","240","0.5","0.5","0.5","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
+# signal_begin = ["4","6","9","360","240","0.5","0.5","0.5","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
 # signal_begin = ["4","6","9","640","480","0.2","0.2","0.2","%s"%(-5),"%s"%(6),"%s"%0,"%s"%(30),"%s"%(-5),"%s"%(6)]
+signal_begin = ["4","6","9","640","480","256","256","256","%s"%(x0),"%s"%(x1),"%s"%y0,"%s"%(y1),"%s"%(z0),"%s"%(z1)]
 signal_begin_int = list(map(eval, signal_begin))
 drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int
 
 
-shape_1=np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
+shape_1=np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
 # print(I.shape,"ishape")
 #
-# show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
+show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
 #
-leftpoint(poinst_3d,shape_1)
+# # leftpoint(poinst_3d,shape_1)
