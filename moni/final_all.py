@@ -26,7 +26,7 @@ def begin_cal(signal_begin,path):
     print(signal_begin_int)
 
 
-
+    #精度修改
     a = np.load("x_y_z.npy")
     print(a.shape)
     print(a[1:,:].min(axis=0))

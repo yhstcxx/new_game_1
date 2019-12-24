@@ -10,7 +10,7 @@ def img_binary(gray,lenth,wedth):
     # # 二值化
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # print(gray.shape)
-    ret, binary = cv2.threshold(gray,10, 255, cv2.THRESH_BINARY)  # 前面哪个是阈值，后面的是设定值
+    ret, binary = cv2.threshold(gray, 10, 255, cv2.THRESH_BINARY)# 前面哪个是阈值，后面的是设定值
 
     # cv2.imshow("binary",binary)
     # cv2.imshow("gray",gray)

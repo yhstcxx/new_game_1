@@ -3,7 +3,7 @@ import pandas as pd
 import csv
 import glob
 def fenzu(path,name):
-    all_files = glob.glob(os.path.join(path, "{}*".format(name)))
+    all_files = glob.glob(os.path.join(path, "*{}*".format(name)))
     # df_from_each_file = (pd.read_csv(f) for f in all_files)
 
     zu_list = []
