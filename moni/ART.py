@@ -29,12 +29,12 @@ def begin_cal(signal_begin,path):
 
 
 
-    points_numb=np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].T.reshape(-1, 3).shape[0]
+    points_numb=np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].T.reshape(-1, 3).shape[0]
 
     poinst_3d_all = np.zeros((points_numb, 5), np.float32)
-    poinst_3d_all[:, :3] = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].T.reshape(-1, 3)
+    poinst_3d_all[:, :3] = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].T.reshape(-1, 3)
     # 为后面绘图重构坐标
-    shape_1 = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
+    shape_1 = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
 
     #1.实验组数 2.方向数，3.照片编号
     #标定图片，返回相机序（方向）号及对应内外惨----2
@@ -266,7 +266,7 @@ def begin_cal(signal_begin,path):
 
                 np.save(path_01 + "\\" + "point_3d_%d.npy" % pic_num, poinst_3d)
                 # print(poinst_3d,"point_3d")
-                volum = v.vol(poinst_3d, x_deta, y_deta,z_deta, points_numb)#h后面加判断
+                volum = v.vol(poinst_3d, y_deta, z_deta, points_numb)  # h后面加判断
 
                 # if drc_num ==drc - 1:
                 #     baocun_csv.baocun_1(f_volum, pic_num, volum)
@@ -277,7 +277,7 @@ def begin_cal(signal_begin,path):
                 # p像素个数
     # 三维可视化
     # poinst_3d = np.load(r"C:\Users\yhstc\Desktop\untitled3\point_3d_1.npy")
-    # shape_1 = np.mgrid[x0:x1:x_deta, y0:y1:y_deta, z0:z1:z_deta].shape[1:]
+    # shape_1 = np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
     # I = poinst_3d[:, 3]
     # print(I.shape, "ishape")
     # left_points = show.show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)

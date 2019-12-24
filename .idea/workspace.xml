@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41862805-aec5-40e7-a1e1-55cfc5887ecd" name="默认" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fire_wirl/area_detect.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fire_wirl/delect_pic.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fire_wirl/pic_all.csv" />
@@ -18,6 +19,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/yuzhi.py" afterPath="$PROJECT_DIR$/moni/yuzhi.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/zu_dir.py" afterPath="$PROJECT_DIR$/moni/zu_dir.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/x_y_z.npy" afterPath="$PROJECT_DIR$/moni/x_y_z.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mianji/area_v.py" afterPath="$PROJECT_DIR$/mianji/area_v.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mianji/v.py" afterPath="$PROJECT_DIR$/mianji/v.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/ART.py" afterPath="$PROJECT_DIR$/moni/ART.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/final_all.py" afterPath="$PROJECT_DIR$/moni/final_all.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/jingdu_readnumpy.py" afterPath="$PROJECT_DIR$/moni/jingdu_readnumpy.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moni/show.py" afterPath="$PROJECT_DIR$/moni/show.py" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +39,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/untitled4$aaa.coverage" NAME="aaa Coverage Results" MODIFIED="1575978522593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/暂时不用" />
-    <SUITE FILE_PATH="coverage/new_game_1$show.coverage" NAME="show Coverage Results" MODIFIED="1576469659755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
+    <SUITE FILE_PATH="coverage/new_game_1$final_all.coverage" NAME="final_all Coverage Results" MODIFIED="1576849159654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
+    <SUITE FILE_PATH="coverage/new_game_1$show.coverage" NAME="show Coverage Results" MODIFIED="1576852037985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
     <SUITE FILE_PATH="coverage/untitled4__2_$qt.coverage" NAME="qt Coverage Results" MODIFIED="1576122751274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/zanshi" />
     <SUITE FILE_PATH="coverage/untitled4__2_$line_detect.coverage" NAME="line_detect Coverage Results" MODIFIED="1576759323320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fire_wirl" />
     <SUITE FILE_PATH="coverage/untitled4__2_$final_all__1_.coverage" NAME="final_all (1) Coverage Results" MODIFIED="1576132070583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
@@ -40,6 +52,7 @@
     <SUITE FILE_PATH="coverage/untitled4__2_$jingdu.coverage" NAME="jingdu Coverage Results" MODIFIED="1576140091608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
     <SUITE FILE_PATH="coverage/untitled4__2_$show.coverage" NAME="show Coverage Results" MODIFIED="1576418995387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
     <SUITE FILE_PATH="coverage/untitled4$zhenghe_csv.coverage" NAME="zhenghe_csv Coverage Results" MODIFIED="1575976025970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/模拟火" />
+    <SUITE FILE_PATH="coverage/new_game_1$jingdu.coverage" NAME="jingdu Coverage Results" MODIFIED="1576849274270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
     <SUITE FILE_PATH="coverage/untitled4$yuzhi.coverage" NAME="yuzhi Coverage Results" MODIFIED="1575462500616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/临时" />
     <SUITE FILE_PATH="coverage/untitled4__2_$read_modefy.coverage" NAME="read_modefy Coverage Results" MODIFIED="1576631109096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fire_wirl" />
     <SUITE FILE_PATH="coverage/untitled4__2_$mianji.coverage" NAME="mianji Coverage Results" MODIFIED="1576322999512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mianji" />
@@ -58,7 +71,11 @@
     <SUITE FILE_PATH="coverage/untitled4__2_$area_detect.coverage" NAME="area_detect Coverage Results" MODIFIED="1577074063003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fire_wirl" />
     <SUITE FILE_PATH="coverage/untitled4__2_$line_detected.coverage" NAME="line_detected Coverage Results" MODIFIED="1576757810868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fire_wirl" />
     <SUITE FILE_PATH="coverage/new_game_1$read_obj_surface.coverage" NAME="read_obj_surface Coverage Results" MODIFIED="1576469491029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/zanshi" />
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/untitled4__2_$delect_pic.coverage" NAME="delect_pic Coverage Results" MODIFIED="1577181871548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fire_wirl" />
+=======
+    <SUITE FILE_PATH="coverage/new_game_1$jingdu_readnumpy.coverage" NAME="jingdu_readnumpy Coverage Results" MODIFIED="1576850517048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/moni" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
     <SUITE FILE_PATH="coverage/untitled4$a.coverage" NAME="a Coverage Results" MODIFIED="1575455081785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/临时" />
     <SUITE FILE_PATH="coverage/untitled4__2_$ui.coverage" NAME="ui Coverage Results" MODIFIED="1576132096710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled4$.coverage" NAME="整合 Coverage Results" MODIFIED="1575973180660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/模拟火" />
@@ -69,25 +86,40 @@
       <file leaf-file-name="line_detect.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/暂时不用/line_detect.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="800">
               <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="100">
+              <caret line="88" column="27" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="line_detected.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/暂时不用/line_detected.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1379">
               <caret line="165" column="0" lean-forward="true" selection-start-line="161" selection-start-column="6" selection-end-line="165" selection-end-column="0" />
+=======
+      <file leaf-file-name="png_dir.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moni/png_dir.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="25" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="area_detect.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fire_wirl/area_detect.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,10 +128,19 @@
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="jingdu.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moni/jingdu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="37" column="63" lean-forward="false" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="63" />
+              <folding />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="delect_pic.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fire_wirl/delect_pic.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,10 +149,19 @@
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="yuzhi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moni/yuzhi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+              <folding />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="final_all.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/moni/final_all.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,50 +170,94 @@
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="jingdu_readnumpy.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/moni/jingdu_readnumpy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="pic_all.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fire_wirl/pic_all.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3720">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+=======
+      <file leaf-file-name="final_all.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moni/final_all.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2752">
+              <caret line="346" column="39" lean-forward="false" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="obstract_begin.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fire_wirl/obstract_begin.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
               <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="14" selection-end-column="57" />
+=======
+      <file leaf-file-name="baocun_csv.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moni/baocun_csv.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="30" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="jingdu_readnumpy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/moni/jingdu_readnumpy.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="22" />
+=======
+      <file leaf-file-name="ART.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moni/ART.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="268" column="79" lean-forward="false" selection-start-line="268" selection-start-column="79" selection-end-line="268" selection-end-column="79" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="jingdu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/moni/jingdu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1440">
               <caret line="37" column="67" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="67" />
+=======
+      <file leaf-file-name="area_v.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mianji/area_v.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="99" column="24" lean-forward="false" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="24" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="read_modefy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/暂时不用/read_modefy.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -172,6 +266,14 @@
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="v.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mianji/v.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="8" column="124" lean-forward="false" selection-start-line="8" selection-start-column="123" selection-end-line="8" selection-end-column="124" />
+              <folding />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
             </state>
           </provider>
         </entry>
@@ -187,6 +289,18 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+=======
+      <find>drc-1</find>
+      <find>drc</find>
+      <find>png</find>
+      <find>png_dir</find>
+      <find>modules</find>
+      <find>cube</find>
+      <find>draw</find>
+      <find>x_y_z.npy</find>
+      <find>begin_cal</find>
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <find>PolyDataMapper</find>
       <find>vtkContourFilter</find>
       <find>ContourFilter</find>
@@ -205,6 +319,7 @@
       <find>contour_list</find>
       <find>data</find>
       <find>ImageData</find>
+<<<<<<< HEAD
       <find>name</find>
       <find>&quot;a&quot;</find>
       <find>pic</find>
@@ -217,6 +332,11 @@
       <find>open</find>
       <find>imread</find>
       <find>try</find>
+=======
+      <find>vol</find>
+      <find>x0:x1</find>
+      <find>v.vol</find>
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -249,20 +369,22 @@
         <option value="$PROJECT_DIR$/ui.py" />
         <option value="$PROJECT_DIR$/moni/buzhou.txt" />
         <option value="$PROJECT_DIR$/moni/jingdu.py" />
-        <option value="$PROJECT_DIR$/mianji/v.py" />
         <option value="$PROJECT_DIR$/moni/png_dir.py" />
         <option value="$PROJECT_DIR$/mianji/biaomian.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/mayavi/components/contour.py" />
-        <option value="$PROJECT_DIR$/mianji/area_v.py" />
         <option value="$PROJECT_DIR$/mianji/mianji.py" />
         <option value="$PROJECT_DIR$/moni/readnumpy.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/mayavi/components/poly_data_normals.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/moni/ART.py" />
+=======
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/mayavi/components/actor.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/mayavi/tools/modules.py" />
         <option value="$PROJECT_DIR$/zanshi/plyfile_read.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/mayavi/modules/iso_surface.py" />
         <option value="$PROJECT_DIR$/zanshi/read_obj_surface.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/moni/baocun_csv.py" />
         <option value="$PROJECT_DIR$/fire_wirl/readme.txt" />
         <option value="$PROJECT_DIR$/readme.txt" />
@@ -276,6 +398,14 @@
         <option value="$PROJECT_DIR$/fire_wirl/obstract_begin.csv" />
         <option value="$PROJECT_DIR$/fire_wirl/area_detect.py" />
         <option value="$PROJECT_DIR$/fire_wirl/delect_pic.py" />
+=======
+        <option value="$PROJECT_DIR$/mianji/area_v.py" />
+        <option value="$PROJECT_DIR$/mianji/v.py" />
+        <option value="$PROJECT_DIR$/moni/ART.py" />
+        <option value="$PROJECT_DIR$/moni/final_all.py" />
+        <option value="$PROJECT_DIR$/moni/show.py" />
+        <option value="$PROJECT_DIR$/moni/jingdu_readnumpy.py" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       </list>
     </option>
   </component>
@@ -307,7 +437,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
+=======
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,6 +505,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="moni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_game_1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_game_1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mianji" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_game_1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_game_1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="fire_wirl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -379,6 +540,10 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,26 +597,42 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="read_modefy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration default="false" name="read_obj_surface" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fire_wirl" />
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/zanshi" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="untitled4" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="C:\Users\yhstc\Desktop\untitled4 (2)\暂时不用\read_modefy.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/zanshi/read_obj_surface.py" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="line_detected" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration default="false" name="final_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -464,13 +645,21 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="untitled4" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="C:\Users\yhstc\Desktop\untitled4 (2)\暂时不用\line_detected.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/moni/final_all.py" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="area_detect" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration default="false" name="jingdu" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -483,26 +672,42 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="untitled4" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fire_wirl/area_detect.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/moni/jingdu.py" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="delect_pic" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration default="false" name="jingdu_readnumpy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fire_wirl" />
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/moni" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="untitled4" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fire_wirl/delect_pic.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/moni/jingdu_readnumpy.py" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -657,6 +862,7 @@
       <method />
     </configuration>
     <list size="5">
+<<<<<<< HEAD
       <item index="0" class="java.lang.String" itemvalue="Python.line_detect" />
       <item index="1" class="java.lang.String" itemvalue="Python.read_modefy" />
       <item index="2" class="java.lang.String" itemvalue="Python.line_detected" />
@@ -670,6 +876,21 @@
         <item index="2" class="java.lang.String" itemvalue="Python.line_detect" />
         <item index="3" class="java.lang.String" itemvalue="Python.line_detected" />
         <item index="4" class="java.lang.String" itemvalue="Python.read_modefy" />
+=======
+      <item index="0" class="java.lang.String" itemvalue="Python.show" />
+      <item index="1" class="java.lang.String" itemvalue="Python.read_obj_surface" />
+      <item index="2" class="java.lang.String" itemvalue="Python.final_all" />
+      <item index="3" class="java.lang.String" itemvalue="Python.jingdu" />
+      <item index="4" class="java.lang.String" itemvalue="Python.jingdu_readnumpy" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.show" />
+        <item index="1" class="java.lang.String" itemvalue="Python.jingdu_readnumpy" />
+        <item index="2" class="java.lang.String" itemvalue="Python.jingdu" />
+        <item index="3" class="java.lang.String" itemvalue="Python.final_all" />
+        <item index="4" class="java.lang.String" itemvalue="Python.read_obj_surface" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       </list>
     </recent_temporary>
   </component>
@@ -698,7 +919,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25357142" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40022805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.159375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="查找" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738096" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -728,7 +954,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/moni/final_all.py</url>
-          <line>123</line>
+          <line>125</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/moni/show.py</url>
@@ -867,6 +1093,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/zanshi/surface.obj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -887,34 +1114,84 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/zanshi/csv_aaa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mianji/v.py">
+    <entry file="file://$PROJECT_DIR$/zanshi/read_obj_surface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="1242">
+          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding>
+            <element signature="e#1#10#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/暂时不用/readme.txt">
+    <entry file="file://$PROJECT_DIR$/zanshi/plyfile_read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="270">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fire_wirl/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="320">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+=======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zanshi/surface.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35586">
+          <caret line="1318" column="20" lean-forward="false" selection-start-line="1318" selection-start-column="20" selection-end-line="1318" selection-end-column="20" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/暂时不用/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+=======
+    <entry file="file://$PROJECT_DIR$/fire_wirl/a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/fire_wirl/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/fire_wirl/read_modefy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="13" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/zanshi/csv_aaa.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -929,14 +1206,29 @@
           <caret line="99" column="27" lean-forward="false" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="27" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/fire_wirl/line_detect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="80" column="19" lean-forward="false" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#16#0" expanded="false" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mianji/area_v.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3194">
           <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/moni/zhenghe_csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="26" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
@@ -949,22 +1241,37 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
           <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+=======
+    <entry file="file://$PROJECT_DIR$/mianji/biaomian.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="78" column="15" lean-forward="true" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/moni/zhenghe_csv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="25" />
+=======
+    <entry file="file://$PROJECT_DIR$/mianji/mianji.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="46" column="14" lean-forward="true" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/zanshi/plyfile_read.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -977,74 +1284,136 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+=======
+    <entry file="file://$PROJECT_DIR$/mianji/area_v.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="99" column="24" lean-forward="false" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="24" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/mianji/mianji.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+=======
+    <entry file="file://$PROJECT_DIR$/mianji/v.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="124" lean-forward="false" selection-start-line="8" selection-start-column="123" selection-end-line="8" selection-end-column="124" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/moni/baocun_csv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-40">
           <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+=======
+    <entry file="file://$PROJECT_DIR$/moni/ART.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="268" column="79" lean-forward="false" selection-start-line="268" selection-start-column="79" selection-end-line="268" selection-end-column="79" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/moni/png_dir.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="17" />
+=======
+    <entry file="file://$PROJECT_DIR$/moni/baocun_csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="30" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/moni/zu_dir.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="5" column="58" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="58" />
+=======
+    <entry file="file://$PROJECT_DIR$/moni/yuzhi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/moni/jingdu_readnumpy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="22" />
+=======
+    <entry file="file://$PROJECT_DIR$/moni/show.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="88" column="27" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/moni/jingdu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="37" column="67" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fire_wirl/$RFDOCMO.csv">
+=======
+    <entry file="file://$PROJECT_DIR$/moni/png_dir.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="25" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/fire_wirl/$RFDOCMO.csv">
+=======
+    <entry file="file://$PROJECT_DIR$/moni/final_all.py">
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2752">
+          <caret line="346" column="39" lean-forward="false" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/fire_wirl/obstract_begin.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="14" selection-end-column="57" />
+=======
+    <entry file="file://$PROJECT_DIR$/moni/jingdu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="37" column="63" lean-forward="false" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="63" />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/暂时不用/read_modefy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1062,6 +1431,13 @@
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/moni/jingdu_readnumpy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+>>>>>>> 79f856a7c1721592ae03d2e019990cb5ba02987e
         </state>
       </provider>
     </entry>
