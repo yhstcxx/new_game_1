@@ -14,7 +14,7 @@ def zhenghe(name,path):
     #     df.to_excel(writer, sheet_name='area{0}.csv'.format(idx+1))
     for f in all_files:
         df = pd.read_csv(f)
-        print(df)
+        # print(df)
         df.to_excel(writer, sheet_name=os.path.basename(f),index=False)
 
     writer.save()
