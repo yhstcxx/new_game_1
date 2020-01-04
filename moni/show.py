@@ -98,6 +98,7 @@ def show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d):
     # figsize = (32*5, 24*5)
     # mlab.savefig(filename='surface.png', size=figsize)
     mlab.savefig(filename='surface%s.obj')
+    mlab.show()
 
 
 
@@ -143,11 +144,11 @@ def leftpoint(point,shape_1):
 if __name__ == '__main__':
 
     # 火旋风
-    poinst_3d = np.load(r"E:\shiyan\shiyan-3-2.5kw-qian1200zhang\point\point_3d_129.npy")
+    poinst_3d = np.load(r"E:\shiyan\shiyan-3-2.5kw-qian1200zhang\point\point_3d_1.npy")
     I = poinst_3d[:, 3]  # 轮廓
 
-    signal_begin = ['4', '6', '9', '320', '240', '30', '30', '90', '-5', '5', '0', '30', '-5', '5']
-    # signal_begin = ['4', '6', '9', '320', '240', '100', '100', '200', '-5', '5', '0', '30', '-5', '5']
+    # signal_begin = ['4', '6', '9', '320', '240', '30', '30', '90', '-5', '5', '0', '30', '-5', '5']
+    signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
 
     signal_begin_int = list(map(eval, signal_begin))
     drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int

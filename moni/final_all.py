@@ -42,12 +42,13 @@ def begin_cal(signal_begin,path):
     # zu_path = r"C:\Users\yhstc\Desktop\shiyan"
     # 实验组的路径和名字
     print(zu_path)
-    zu_all, zu_name = zu_dir.fenzu(zu_path, "shiyan")
-    # zu_all,zu_name = zu_dir.fenzu(zu_path,"shiyan")
+    # zu_all, zu_name = zu_dir.fenzu(zu_path, "*kw")
+    zu_all,zu_name = zu_dir.fenzu(zu_path,"shiyan")
 
     print(zu_path)
     # 标定
     path_0 = r"{}\biaoding".format(zu_path)
+    # path_0 = r"{}\biaoding".format(zu_path)
     image_all = png_dir.DFS_file_range(path_0, drc - 1)
 
 
@@ -75,11 +76,9 @@ def begin_cal(signal_begin,path):
     # 1.标定算法开始
     criteria = (cv2.TERM_CRITERIA_MAX_ITER | cv2.TERM_CRITERIA_EPS, 30, 0.001)
 
-    print=(zu_all)
-    exit()
     #组循环
-    for num_zu in range(len(zu_all)):
-    # for num_zu in range(3,4):
+    # for num_zu in range(len(zu_all)):
+    for num_zu in range(3,4):
 
 
         # 保存数组，保存的坐标值及对应亮度，二值化----1，3
@@ -102,9 +101,9 @@ def begin_cal(signal_begin,path):
         f_volum, f_volum_close = baocun_csv.dakai(path_02, "volum_%s" % zu_name[num_zu])
         f_area_3d, f_area_3d_close = baocun_csv.dakai(path_02, "area3d_%s" % zu_name[num_zu])
         #深度循环，不是广度
-        # for drc_num in range(1,drc):#方向数循环
+        for drc_num in range(1,drc):#方向数循环
 
-        for drc_num in range(3,4):  # 方向数循环,从2开始会有bug，下面去调投影条件
+        # for drc_num in range(3,4):  # 方向数循环,从2开始会有bug，下面去调投影条件
             objp = np.zeros((w*h,3), np.float32)
             #每行前两个进行赋值，标定
             objp[:,:2] = np.mgrid[-(w - 1):(w):2, 0:2 * h:2].T.reshape(-1, 2)
@@ -112,7 +111,7 @@ def begin_cal(signal_begin,path):
             obj_points = [] # 存储世界坐标系中的3D点(实际上Zw在标定板上的值为0)
             img_points = [] # 存储图像坐标系中的2D点
             images = image_all[drc_num]
-
+            # print(image_all[drc_num])
             #面积
             # f_area = open(path_1 + "\\" +str(drc_num)+  "\\" + 'area_%d'%drc_num + ".csv", "a", newline='')
             # f_area = csv.writer(f_area)
@@ -144,7 +143,7 @@ def begin_cal(signal_begin,path):
                     # cv2.resizeWindow('img', 1000, 1000)
                     # cv2.imshow('img', img)
                     # cv2.waitKey(0)
-
+            #
             # print(len(img_points))  # 数据集数
             # cv2.destroyAllWindows()
             # exit()
@@ -154,7 +153,7 @@ def begin_cal(signal_begin,path):
             # 标定
             ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(obj_points, img_points,size, None, None)
             # print(rvecs,"rvecs")
-
+            #
             # print("ret:", ret)  # 重投影误差
             # print("mtx:", mtx)  # 内参数矩阵
             # print("dist:", dist)  # 畸变系数   distortion cofficients = (k_1,k_2,p_1,p_2,k_3)
@@ -299,5 +298,7 @@ def begin_cal(signal_begin,path):
     # # area_v.aera(left_points)
 
     # 面积.aera(X, Y, Z)
-begin_cal(['4', '6', '9', '320', '240', '30', '30', '90', '-5', '5', '0', '30', '-5', '5'],r"E:\shiyan")
+#分辨率太小会影响标定
+if __name__ == '__main__':
+    begin_cal(['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5'],r"E:\shiyan")
 # print(eval(str(10)+"i"))

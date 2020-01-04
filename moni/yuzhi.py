@@ -84,10 +84,10 @@ def img_binary(gray,lenth,wedth):
     #
     # cv2.imshow("finall",binary)
     # #
-    # cv2.waitKey(0)
+    cv2.waitKey(0)
     # cv2.destroyAllWindows()
     return binary
-# frame = cv2.imread(r"C:\Users\yhstc\Desktop\untitled4 (2)\zanshi\0008.bmp")
+# frame = cv2.imread(r"C:\Users\yhstc\Desktop\shiyan\shiyan-1-\3\0002.bmp")
 # frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_AREA)
 # # 二值化
 # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
