@@ -4,6 +4,7 @@ import pandas as pd
 import glob,os
 import csv
 from moni import zu_dir
+import matplotlib.pyplot as plt
 from moni import png_dir
 #空格：确认，esc返回，1：前进10张，2：后退10张，+：后退一张 -：前进一张；
 #正确步骤：找到图片————空格————，点错即返回
@@ -167,5 +168,71 @@ class delect:
                     #路径拼接方向，删除每个方向图片
                     print(drc_all[drc_num] + "\\" + str(pic))
                     # os.remove(drc_all[drc_num] + "\\" + str(pic))
-save_pic_num().begin()
+class ignore:
+    def __init__(self):
+        self.area = []
+    def begin(self):
+        # 循环组
+        for num_zu in range(len(zu_all)):
+
+            # 组路径，保存体积、面积，每组实验随时间变化----1，3
+            path_02 = zu_all[num_zu]
+            try:
+                #读取路径
+                pic_all = pd.read_csv(path_02 + "\\" +'pic_all.csv', encoding='gbk')
+                # pic_all = np.array(pic_all)[:,1]
+                # 取图片索引
+                x = np.array([int(i.split('.')[0]) for i in pic_all['0']])
+            except:
+                area = pd.read_csv(path_02 + "\\" + 'area_' + zu_name[num_zu] + '_1.csv', encoding='gbk')
+                self.area.append(area['area_%s_1' % zu_name[num_zu]].mean(axis=0))
+                continue
+
+            #方向路径，方向名
+            drc_all, drc_name = zu_dir.fenzu(path_02, "")
+            try:
+                area = pd.read_csv(path_02 + "\\" + 'area_' + zu_name[num_zu] + '_1.csv', encoding='gbk')
+            except:
+                continue
+
+            # print(pic_all['0'],'pic_all')
+
+            # print(x)
+            # print(area)
+            # print(area['index']-1)
+            # print(~ area['index'].isin(x))
+
+            #除去遮挡的平均值
+            self.area.append(area['area_%s_1' % zu_name[num_zu]].loc[ ~(area['index'].isin(x))].mean(axis=0))
+            # print(area['area_%s_1'%zu_name[num_zu]],"area")
+            # for drc_num in range(0, drc-1):  # 方向数循环
+            #     for pic in pic_all:
+            #         #路径拼接方向，删除每个方向图片
+            #         print(drc_all[drc_num] + "\\" + str(pic))
+                    # os.remove(drc_all[drc_num] + "\\" + str(pic))
+        # print(self.area)
+        x = [int(i.split('_')[-1]) for i in zu_name]
+        show ={}
+        for i in range(len(x)):
+            show[x[i]]=self.area[i]
+
+        # print(show)
+        #对y轴数据进行排序，我们根据文件夹遍历并不是按照转速进行的
+        y_sort = []
+        for i in range(len(x)):
+            for j,k in show.items():
+                if i==j:
+                    y_sort.append(k)
+        # 自定义 x轴 的取值：
+        # colums_x = x
+        colums_y = y_sort
+        plt.xticks(range(len(x)))
+        # 不要再写进 colums_x 了
+        plt.plot(colums_y)
+
+        plt.xlabel("x axis ")
+        plt.ylabel("y axis ")
+        plt.show()
+ignore().begin()
+# save_pic_num().begin()
 # delect().begin()
