@@ -14,7 +14,7 @@ lenth = 320
 #方向数
 drc=4
 #组所在文件夹
-path = r"F:\shiyan\fire_wirl"
+path = r"G:\shiyan\fire_wirl"
 
 #1.实验组数 2.方向数，3.照片编号
 #组所在文件夹
@@ -22,7 +22,8 @@ zu_path=r"{}".format(path)
 # zu_path = r"C:\Users\yhstc\Desktop\shiyan"
 
 #实验组的路径和名字
-zu_all,zu_name = zu_dir.fenzu(zu_path,"rpm")
+power = 3.5
+zu_all,zu_name = zu_dir.fenzu(zu_path,"*%skw"%power)
 
 
 
@@ -214,8 +215,11 @@ class ignore:
         x = [int(i.split('_')[-1]) for i in zu_name]
         show ={}
         for i in range(len(x)):
-            show[x[i]]=self.area[i]
-
+            #面积
+            # show[x[i]] = self.area[i]
+            # show[x[i]self.area[i]/43660*729/100000
+            # 变成火焰表面积,s/图像面积*真是面积*Π,注意图片是经过分辨率变换后得到的
+            show[x[i]] = power/((self.area[i] / 34302) * (7.29 / 1000)*np.pi)
         # print(show)
         #对y轴数据进行排序，我们根据文件夹遍历并不是按照转速进行的
         y_sort = []
@@ -230,8 +234,10 @@ class ignore:
         # 不要再写进 colums_x 了
         plt.plot(colums_y)
 
-        plt.xlabel("x axis ")
-        plt.ylabel("y axis ")
+        # plt.xlabel("x axis ")
+        # plt.ylabel("y axis ")
+        plt.xlabel("experiment number")
+        plt.ylabel("q''kw/m2-%s"%power+"kw")
         plt.show()
 ignore().begin()
 # save_pic_num().begin()

@@ -43,7 +43,7 @@ def begin_cal(signal_begin,path):
     # 实验组的路径和名字
     print(zu_path)
     # zu_all, zu_name = zu_dir.fenzu(zu_path, "*kw")
-    zu_all,zu_name = zu_dir.fenzu(zu_path,"shiyan")
+    zu_all,zu_name = zu_dir.fenzu(zu_path,"kw")
 
     print(zu_path)
     # 标定
@@ -77,8 +77,10 @@ def begin_cal(signal_begin,path):
     criteria = (cv2.TERM_CRITERIA_MAX_ITER | cv2.TERM_CRITERIA_EPS, 30, 0.001)
 
     #组循环
-    # for num_zu in range(len(zu_all)):
-    for num_zu in range(3,4):
+    # print(zu_all)
+    # exit()
+    for num_zu in range(len(zu_all)):
+    # for num_zu in range(3,4):
 
 
         # 保存数组，保存的坐标值及对应亮度，二值化----1，3
@@ -121,7 +123,7 @@ def begin_cal(signal_begin,path):
 
             for fname in images:# 标定
                 img = cv2.imread(fname)
-                img = cv2.resize(img, (lenth,wedth), interpolation=cv2.INTER_AREA)
+                # img = cv2.resize(img, (lenth,wedth), interpolation=cv2.INTER_AREA)
                 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
                 size = gray.shape[::-1]
                 ret, corners = cv2.findChessboardCorners(gray, (w, h), None)
@@ -137,7 +139,7 @@ def begin_cal(signal_begin,path):
                         img_points.append(corners2)
                     else:
                         img_points.append(corners)
-
+                    #
                     # cv2.drawChessboardCorners(img, (w, h), corners, ret)  # 记住，OpenCV的绘制函数一般无返回值
                     # cv2.namedWindow('img', cv2.WINDOW_NORMAL)
                     # cv2.resizeWindow('img', 1000, 1000)
@@ -213,14 +215,24 @@ def begin_cal(signal_begin,path):
                     poinst_3d = poinst_3d_all
                     # print("alllllllllll")
                     # exit()
-                if drc_num ==1:
-                    pass
-                elif drc_num==2:
-                    # 坐标变换，不同视角标定，2号2
-                    poinst_3d[:, 2], poinst_3d[:, 0] = poinst_3d[:, 0], -poinst_3d[:, 2]
-                # 坐标变换，不同视角标定3号
-                else:
-                    poinst_3d[:, 0], poinst_3d[:, 2] = poinst_3d[:, 2], -poinst_3d[:, 0]
+
+                # if drc_num ==1:
+                #     pass
+                # # elif drc_num==2:
+                # elif drc_num == 2 :
+                #     # 坐标变换，不同视角标定，2号2
+                #     poinst_3d[:, 2], poinst_3d[:, 0] = poinst_3d[:, 0], -poinst_3d[:, 2]
+                # # 坐标变换，不同视角标定3号
+                # else:
+                #     poinst_3d[:, 0], poinst_3d[:, 2] = poinst_3d[:, 2], -poinst_3d[:, 0]
+
+
+                # if drc_num ==2 or drc_num == 3:
+                #     pass
+                #
+                # else:
+                #     poinst_3d[:, 0], poinst_3d[:, 2] = poinst_3d[:, 2], -poinst_3d[:, 0]
+
 
                 #判断是否在指定范围内
                 #转为像素点X坐标， 转为像素点Y坐标,i 为第i个点
@@ -234,18 +246,18 @@ def begin_cal(signal_begin,path):
                     #
                     try:
                     #     #这里ART算法的时候有bug
-
-                        if  binary[math.ceil(imgpoints2[1])][math.ceil(imgpoints2[0])] and (poinst_3d[i][3] == 1 or drc_num == 1):
-                            # poinst_3d[i][3]=poinst_3d[i][3]+1#白的，1(火焰）#得到火焰内点
-                            poinst_3d[i][3] = 1
+                        if binary[math.ceil(imgpoints2[1])][math.ceil(imgpoints2[0])]:
+                        # if  binary[math.ceil(imgpoints2[1])][math.ceil(imgpoints2[0])] and (poinst_3d[i][3] == 1 or drc_num == 1):
+                            poinst_3d[i][3]=poinst_3d[i][3]+1#白的，1(火焰）#得到火焰内点
+                            # poinst_3d[i][3] = 1
                             # print("A")
                         # 得到投影矩阵,[0]获取投影对应序号,-1是因为binary回去的是,建网格比较稀的时候会有bug，不要忘记-1
                         # wi = binary_to_pi["binary[%d][%d]"%(math.ceil(imgpoints2[1]),math.ceil(imgpoints2[0]))][0]-1#AR
                         # wj = i
                         # W[wi,wj] = 1
                         else:
-                            # pass
-                            poinst_3d[i][3]=0  # 黑的，0
+                            pass
+                            # poinst_3d[i][3]=0  # 黑的，0
                             # print("B")
                     except:
                         pass
@@ -256,16 +268,27 @@ def begin_cal(signal_begin,path):
 
 
                 #这里调换顺序会有bug，2号
-                if drc_num ==1:
-                    pass
-                elif drc_num ==2:
-                    # 这里调换顺序会有bug，2号，        #投影不一定在xy上，这里有bug
-                    poinst_3d[:, 0],poinst_3d [:, 2]  = poinst_3d[:, 2], -poinst_3d[:, 0]
-                else:
-                    #这里调换顺序会有bug，3号
-                    poinst_3d[:, 2], poinst_3d[:, 0] = poinst_3d[:, 0], -poinst_3d[:, 2]
+                # if drc_num ==1:
+                #     pass
+                # elif drc_num == 2:
+                #     # 这里调换顺序会有bug，2号，        #投影不一定在xy上，这里有bug
+                #     poinst_3d[:, 0],poinst_3d [:, 2]  = poinst_3d[:, 2], -poinst_3d[:, 0]
+                # else:
+                #     #这里调换顺序会有bug，3号
+                #     poinst_3d[:, 2], poinst_3d[:, 0] = poinst_3d[:, 0], -poinst_3d[:, 2]
+
+                # if drc_num ==2 or drc_num ==3:
+                #     pass
+                # else:
+                #     #这里调换顺序会有bug，3号
+                #     poinst_3d[:, 2], poinst_3d[:, 0] = poinst_3d[:, 0], -poinst_3d[:, 2]
+
+
 
                 np.save(path_01 + "\\" + "point_3d_%d.npy" % pic_num, poinst_3d)
+
+
+
                 # print(poinst_3d,"point_3d")
 
                 volum = v.vol(poinst_3d,y_deta,z_deta, points_numb)#h后面加判断
@@ -277,9 +300,13 @@ def begin_cal(signal_begin,path):
                     # 三维可视化,导出3d面积
                     I = poinst_3d[:, 3]
                     # print(I.shape, "ishape")
-                    S = show.save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d, zu_all[num_zu],pic_num)
-                    if S:
-                        baocun_csv.baocun_1(f_area_3d, pic_num, S)
+
+
+                    # S = show.save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d, zu_all[num_zu],pic_num)
+                    # if S:
+                    #     baocun_csv.baocun_1(f_area_3d, pic_num, S)
+
+
                     if pic_num == len(image_1[drc_num]):
                         f_area_close.close()
                         zhenghe_csv.zhenghe("area_%s"%zu_name[num_zu], path_02)
@@ -300,5 +327,6 @@ def begin_cal(signal_begin,path):
     # 面积.aera(X, Y, Z)
 #分辨率太小会影响标定
 if __name__ == '__main__':
-    begin_cal(['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5'],r"E:\shiyan")
+    # begin_cal(['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5'],r"E:\shiyan")
+    begin_cal(['4', '6', '9', '1920', '1200', '60', '60', '300', '-10', '10', '-4', '60', '-10', '10'], r"C:\Users\yhstc\Desktop\shiyan - 1")
 # print(eval(str(10)+"i"))

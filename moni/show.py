@@ -6,7 +6,8 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
     s = I.reshape(shape_1[2], shape_1[1], shape_1[0]).T
     #判断是否存在面
     try:
-        obj = mlab.contour3d(X, Y, Z, s, opacity=0.7, contours=[1])  # , transparent=True)
+        # obj = mlab.contour3d(X, Y, Z, s, opacity=0.7, contours=[1])  #
+        obj = mlab.contour3d(X, Y, Z, s, opacity=0.7, contours=[3])  # , transparent=True)
     except:
         return None
     mlab.savefig(filename=path + "\\" + 'surface%s.obj' % pic_num)
@@ -55,8 +56,8 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
         # cos_c2T = r.dot(n)
         # cos_T2c = (-r).dot(n2)
     try:
-        os.remove(objFilePath)
-        os.remove(path + "\\" + 'surface%s.mtl'% pic_num)
+        # os.remove(objFilePath)
+        os.remove(path + "\\" + 'surface%.mtl'% pic_num)
     except:
         pass
     return S
@@ -97,7 +98,7 @@ def show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d):
     # 保存图片
     # figsize = (32*5, 24*5)
     # mlab.savefig(filename='surface.png', size=figsize)
-    mlab.savefig(filename='surface%s.obj')
+    # mlab.savefig(filename='surface%s.obj')
     mlab.show()
 
 
@@ -144,12 +145,12 @@ def leftpoint(point,shape_1):
 if __name__ == '__main__':
 
     # 火旋风
-    poinst_3d = np.load(r"E:\shiyan\shiyan-3-2.5kw-qian1200zhang\point\point_3d_1.npy")
+    poinst_3d = np.load(r"C:\Users\yhstc\Desktop\shiyan - 1\kw\point\point_3d_1.npy")
     I = poinst_3d[:, 3]  # 轮廓
 
     # signal_begin = ['4', '6', '9', '320', '240', '30', '30', '90', '-5', '5', '0', '30', '-5', '5']
-    signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
-
+    # signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
+    signal_begin =['4', '6', '9', '1920', '1200', '60', '60', '300', '-10', '10', '-4', '60', '-10', '10']
     signal_begin_int = list(map(eval, signal_begin))
     drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int
     #
