@@ -1,6 +1,10 @@
 import numpy as np
 from mayavi import mlab
-import re,os
+import re,os,time
+import pandas as pd
+
+# time_begin = time.time()
+
 def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path,pic_num):
     X, Y, Z = np.mgrid[x0:x1:eval(str(x_deta) + "j"), y0:y1:eval(str(y_deta) + "j"), z0:z1:eval(str(z_deta) + "j")]
     s = I.reshape(shape_1[2], shape_1[1], shape_1[0]).T
@@ -15,24 +19,45 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
     mlab.clf(figure=None)
     mlab.draw(figure=None)
     with open(objFilePath) as file:
-        points = np.zeros(3)
-        faces = np.zeros(3)
-        lines = file.readlines()
-        for line in lines:
-            strs = line.split(" ")
-            if strs[0] == "v":
-                points = np.row_stack((points, [float(strs[1]), float(strs[2]), float(strs[3])]))
-            if strs[0] == "f":
-                strs = re.split(' |//', line)
-                faces = np.row_stack((faces, [int(strs[1]), int(strs[3]), int(strs[5])]))
-                # face = np.row_stack((face, [int(strs[1]), int(strs[3]), float(int[5])]))
+        with open(path + "\\" + 'surface%s.csv'% pic_num,'w') as f:
+            f.write(file.read().replace(" ",",").replace(r"//",","))
 
-    # 删除第一行元素,但是point第一行不用删，面对点索引从1开始
-    # points=np.delete(points, 0, axis=0)
-    faces = np.delete(faces, 0, axis=0)
+        a111 = pd.read_csv(path + "\\" + 'surface%s.csv'% pic_num, encoding='gbk')
+        # 删除/选取某行含有特定数值的列
+        cols = [x for i, x in enumerate(a111.columns)]
+        # print(cols)
+        # print(a111[1,2,3].get_loc[a111['#'].isin(['v'])])
+        #取指定列
+        col_v = [cols[1], cols[2], cols[3]]
+        col_f = [cols[1], cols[3], cols[5]]
+        #面对应的点索引和对应的点坐标
+        faces = np.array(a111[col_f][a111['#'].isin(['f'])]).astype(int)
+        points = np.row_stack(([0, 0, 0], np.array(a111[col_v][a111['#'].isin(['v'])]).astype(float)))
 
-
+    #     points = np.zeros(3)
+    #     faces = np.zeros(3)
+    #     lines = file.readlines()
+    #     for line in lines:
+    #         strs = line.split(" ")
+    #         if strs[0] == "v":
+    #             points = np.row_stack((points, [float(strs[1]), float(strs[2]), float(strs[3])]))
+    #             # print(points)
+    #
+    #         if strs[0] == "f":
+    #             strs = re.split(' |//', line)
+    #             faces = np.row_stack((faces, [int(strs[1]), int(strs[3]), int(strs[5])]))
+    #             # face = np.row_stack((face, [int(strs[1]), int(strs[3]), float(int[5])]))
+    #
+    #             # print(faces)
+    # # 删除第一行元素,但是point第一行不用删，面对点索引从1开始,
+    # #points=np.delete(points, 0, axis=0)
+    # faces = np.delete(faces, 0, axis=0)
+    # print(points)
+    # print(faces)
+    # print(time.time()-time_begin)
+    # exit()
     S = 0
+
 
     for face in faces:
         # print(int(face[0]))
@@ -40,13 +65,16 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
         point_1 = points[int(face[0])]
         point_2 = points[int(face[1])]
         point_3 = points[int(face[2])]
-
+        # print(point_1,point_2,point_3)
         vector_1 = point_1 - point_2
         vector_2 = point_1 - point_3
         # 三角形法线
         n = np.cross(vector_1, vector_2) / np.linalg.norm(np.cross(vector_1, vector_2))
         S += np.linalg.norm(np.cross(vector_1, vector_2)) / 2
 
+
+
+        # print(n)
         # 质心
         # c = (point_1+point_2+point_3)/3
         # T = (x0,y0,z0)#目标物坐标
@@ -57,8 +85,10 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
     try:
         os.remove(objFilePath)
         os.remove(path + "\\" + 'surface%s.mtl'% pic_num)
+        os.remove(path + "\\" + 'surface%s.csv'% pic_num)
     except:
         pass
+    # print(time.time() - time_begin)
     return S
 
 
@@ -144,11 +174,13 @@ def leftpoint(point,shape_1):
 if __name__ == '__main__':
 
     # 火旋风
-    poinst_3d = np.load(r"E:\shiyan\shiyan-3-2.5kw-qian1200zhang\point\point_3d_1.npy")
+    poinst_3d = np.load(r"C:\Users\yhstc\Desktop\shiyan - 1\kw\point\point_3d_1.npy")
     I = poinst_3d[:, 3]  # 轮廓
+    print(I.shape)
+    #火旋风的，C:\Users\yhstc\Desktop\shiyan - 1\kw\point\point_3d_1.npy
+    signal_begin = ['4', '6', '9', '1920', '1200', '60', '60', '300', '-5', '5', '0', '60', '-5', '5']
 
-    # signal_begin = ['4', '6', '9', '320', '240', '30', '30', '90', '-5', '5', '0', '30', '-5', '5']
-    signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
+    # signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
 
     signal_begin_int = list(map(eval, signal_begin))
     drc,w,h,lenth,wedth,x_deta,y_deta,z_deta,x0,x1,y0,y1,z0,z1 = signal_begin_int
@@ -157,6 +189,8 @@ if __name__ == '__main__':
     shape_1=np.mgrid[x0:x1:eval(str(x_deta)+"j"), y0:y1:eval(str(y_deta)+"j"), z0:z1:eval(str(z_deta)+"j")].shape[1:]
     # # print(I.shape,"ishape")
     # #
-    show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
+    # show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
+    path =r"C:\Users\yhstc\Desktop\shiyan - 1\kw\point"
+    save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d,path,1)
 
     # # leftpoint(poinst_3d,shape_1)
