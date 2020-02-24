@@ -3,9 +3,10 @@ from mayavi import mlab
 import re,os,time
 import pandas as pd
 
-# time_begin = time.time()
+
 
 def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path,pic_num):
+    time_begin = time.time()
     X, Y, Z = np.mgrid[x0:x1:eval(str(x_deta) + "j"), y0:y1:eval(str(y_deta) + "j"), z0:z1:eval(str(z_deta) + "j")]
     s = I.reshape(shape_1[2], shape_1[1], shape_1[0]).T
     #判断是否存在面
@@ -13,26 +14,32 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
         obj = mlab.contour3d(X, Y, Z, s, opacity=0.7, contours=[1])  # , transparent=True)
     except:
         return None
-    mlab.savefig(filename=path + "\\" + 'surface%s.obj' % pic_num)
-    objFilePath = path + "\\" + 'surface%s.obj'% pic_num
+    mlab.savefig(filename=path + "\\" +'point'+ "\\" + 'surface%s.obj' % pic_num)
+    objFilePath = path + "\\" +'point' + "\\" + 'surface%s.obj'% pic_num
+    mtlFilePath = path + "\\" +'point' + "\\" + 'surface%s.mtl'% pic_num
+    csvFilePath = path + "\\" +'point' + "\\" + 'surface%s.csv'% pic_num
+    # mlab.savefig(filename="Z:\\" + 'surface%s.obj' % pic_num)
+    # objFilePath = "Z:\\"  + 'surface%s.obj'% pic_num
+    # mtlFilePath = "Z:\\" + 'surface%s.mtl'% pic_num
+    # csvFilePath = "Z:\\" +  'surface%s.csv'% pic_num
     # 不能用close，否则会出错
     mlab.clf(figure=None)
     mlab.draw(figure=None)
     with open(objFilePath) as file:
-        with open(path + "\\" + 'surface%s.csv'% pic_num,'w') as f:
+        with open(csvFilePath,'w') as f:
             f.write(file.read().replace(" ",",").replace(r"//",","))
 
-        a111 = pd.read_csv(path + "\\" + 'surface%s.csv'% pic_num, encoding='gbk')
+        surface_pd = pd.read_csv(csvFilePath, encoding='gbk')
         # 删除/选取某行含有特定数值的列
-        cols = [x for i, x in enumerate(a111.columns)]
+        cols = [x for i, x in enumerate(surface_pd.columns)]
         # print(cols)
-        # print(a111[1,2,3].get_loc[a111['#'].isin(['v'])])
+        # print(surface_pd[1,2,3].get_loc[surface_pd['#'].isin(['v'])])
         #取指定列
         col_v = [cols[1], cols[2], cols[3]]
         col_f = [cols[1], cols[3], cols[5]]
         #面对应的点索引和对应的点坐标
-        faces = np.array(a111[col_f][a111['#'].isin(['f'])]).astype(int)
-        points = np.row_stack(([0, 0, 0], np.array(a111[col_v][a111['#'].isin(['v'])]).astype(float)))
+        faces = np.array(surface_pd[col_f][surface_pd['#'].isin(['f'])]).astype(int)
+        points = np.row_stack(([0, 0, 0], np.array(surface_pd[col_v][surface_pd['#'].isin(['v'])]).astype(float)))
 
     #     points = np.zeros(3)
     #     faces = np.zeros(3)
@@ -83,12 +90,12 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
         # cos_c2T = r.dot(n)
         # cos_T2c = (-r).dot(n2)
     try:
-        os.remove(objFilePath)
-        os.remove(path + "\\" + 'surface%s.mtl'% pic_num)
-        os.remove(path + "\\" + 'surface%s.csv'% pic_num)
+        # os.remove(objFilePath)
+        os.remove(mtlFilePath)
+        # os.remove(csvFilePath)
     except:
         pass
-    # print(time.time() - time_begin)
+    print("保存表面积",time.time() - time_begin)
     return S
 
 
@@ -174,12 +181,13 @@ def leftpoint(point,shape_1):
 if __name__ == '__main__':
 
     # 火旋风
-    poinst_3d = np.load(r"C:\Users\yhstc\Desktop\shiyan - 1\kw\point\point_3d_1.npy")
+    path =r"C:\Users\yhstc\Desktop\aaa\90\kw"
+    poinst_3d = np.load(path+"\\" +'point'+"\\" +"point_3d_1.npy")
     I = poinst_3d[:, 3]  # 轮廓
     print(I.shape)
     #火旋风的，C:\Users\yhstc\Desktop\shiyan - 1\kw\point\point_3d_1.npy
-    signal_begin = ['4', '6', '9', '1920', '1200', '60', '60', '300', '-5', '5', '0', '60', '-5', '5']
-
+    # signal_begin = ['4', '6', '9', '1920', '1200', '60', '60', '300', '-5', '5', '0', '60', '-5', '5']
+    signal_begin = ['4', '6', '9', '1920', '1200', '60', '300', '60', '-5', '5', '-4', '80', '-5', '5']
     # signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
 
     signal_begin_int = list(map(eval, signal_begin))
@@ -190,7 +198,6 @@ if __name__ == '__main__':
     # # print(I.shape,"ishape")
     # #
     # show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
-    path =r"C:\Users\yhstc\Desktop\shiyan - 1\kw\point"
     save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d,path,1)
 
     # # leftpoint(poinst_3d,shape_1)

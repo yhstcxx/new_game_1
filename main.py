@@ -6,10 +6,10 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from moni import final_all
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.Qt import *
+
+import final_all
 # class Btn(QPushButton):
 #     clicked = pyqtSignal(list)
 #     def mousePressEvent(self, *args, **kwargs):
@@ -209,8 +209,8 @@ def begin_cal():
     #     ui.y_deta.text(), ui.z_deta.text(),
     #     ui.x0.text(), ui.x1.text(), ui.y0.text(), ui.y1.text(), ui.z0.text(), ui.z1.text()
     # ])
-    final_all.begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'],fir.directory1)
-import source_rc
+    final_all.begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'], fir.directory1)
+
 
 class MyWindow(QtWidgets.QMainWindow):
     def __init__(self):
