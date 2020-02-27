@@ -147,7 +147,7 @@ class Ui_fir(object):
 
         rightclicked = QtCore.pyqtSignal(list)
         self.retranslateUi(fir)
-        self.begin.clicked.connect(begin_cal)
+        self.begin.clicked.connect(fir.begin_cal)
 
         self.zu_path.triggered.connect(fir.msg)
 
@@ -168,7 +168,7 @@ class Ui_fir(object):
         # self.z_deta.textChanged['QString'].connect(data_changed)
         # self.direction_num.textEdited['QString'].connect(data_changed)
         # self.lineEdit.textChanged['QString'].connect(data_changed)
-        self.pushButton.clicked.connect(ensure)
+        self.pushButton.clicked.connect(fir.ensure)
         QtCore.QMetaObject.connectSlotsByName(fir)
 
     def retranslateUi(self, fir):
@@ -188,28 +188,7 @@ class Ui_fir(object):
 
 
 
-def ensure():
-    print("aaa")
-# signal_begin = []
-# def data_changed():
-#     signal_begin = [
-#         ui.direction_num.text(), ui.w.text(), ui.h.text(), ui.lenth.text(), ui.wedth.text(), ui.x_deta.text(),
-#         ui.y_deta.text(), ui.z_deta.text(),
-#         ui.x0.text(), ui.x1.text(), ui.y0.text(), ui.y1.text(), ui.z0.text(), ui.z1.text()
-#     ]
-#     print(signal_begin)
-    # signal_begin_int = list(map(eval, signal_begin))
-    # print(signal_begin_int)
-    # sys.exit()
 
-def begin_cal():
-    # signal_begin_int = map(eval,signal_begin)
-    # final_all.begin_cal([
-    #     ui.direction_num.text(), ui.w.text(), ui.h.text(), ui.lenth.text(), ui.wedth.text(), ui.x_deta.text(),
-    #     ui.y_deta.text(), ui.z_deta.text(),
-    #     ui.x0.text(), ui.x1.text(), ui.y0.text(), ui.y1.text(), ui.z0.text(), ui.z1.text()
-    # ])
-    final_all.begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'], fir.directory1)
 
 
 class MyWindow(QtWidgets.QMainWindow):
@@ -239,7 +218,28 @@ class MyWindow(QtWidgets.QMainWindow):
         #                                              "./",
         #                                              "All Files (*);;Text Files (*.txt)")
 
-
+    def begin_cal(self):
+        # signal_begin_int = map(eval,signal_begin)
+        # final_all.begin_cal([
+        #     ui.direction_num.text(), ui.w.text(), ui.h.text(), ui.lenth.text(), ui.wedth.text(), ui.x_deta.text(),
+        #     ui.y_deta.text(), ui.z_deta.text(),
+        #     ui.x0.text(), ui.x1.text(), ui.y0.text(), ui.y1.text(), ui.z0.text(), ui.z1.text()
+        # ])
+        final_all.begin_cal(['4', '6', '9', '640', '480', '0.2', '0.2', '0.2', '-5', '6', '0', '30', '-5', '6'],
+                            fir.directory1)
+    # signal_begin = []
+    # def data_changed():
+    #     signal_begin = [
+    #         ui.direction_num.text(), ui.w.text(), ui.h.text(), ui.lenth.text(), ui.wedth.text(), ui.x_deta.text(),
+    #         ui.y_deta.text(), ui.z_deta.text(),
+    #         ui.x0.text(), ui.x1.text(), ui.y0.text(), ui.y1.text(), ui.z0.text(), ui.z1.text()
+    #     ]
+    #     print(signal_begin)
+    # signal_begin_int = list(map(eval, signal_begin))
+    # print(signal_begin_int)
+    # sys.exit()
+    def ensure(self):
+        print("aaa")
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
