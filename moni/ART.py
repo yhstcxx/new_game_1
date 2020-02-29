@@ -4,16 +4,17 @@
 # import threading
 # from scipy import io
 # from matplotlib import pyplot as plt
-import time
 import math
+import time
 
 import cv2
 import numpy as np
 
-from mianji import area_v, mianji, v, biaomian
-
+from mianji import v
 from moni import png_dir
-from moni import yuzhi,baocun_csv,zhenghe_csv,zu_dir,show
+from moni import yuzhi, zu_dir
+
+
 #
 # def begin_cal_2(a):
 #     print("ok")
