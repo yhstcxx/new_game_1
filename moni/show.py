@@ -5,26 +5,66 @@ import pandas as pd
 
 
 
-def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path,pic_num):
+def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path,pic_num,image_len,model,ui_obj):
+
     time_begin = time.time()
     X, Y, Z = np.mgrid[x0:x1:eval(str(x_deta) + "j"), y0:y1:eval(str(y_deta) + "j"), z0:z1:eval(str(z_deta) + "j")]
     s = I.reshape(shape_1[2], shape_1[1], shape_1[0]).T
+    if pic_num == image_len and model == 'single':
+        mlab.figure(bgcolor=(1, 1, 1))
     #判断是否存在面
     try:
         obj = mlab.contour3d(X, Y, Z, s, opacity=0.7, contours=[1])  # , transparent=True)
     except:
-        return None
+        return 0
+    # print(1)
+
     mlab.savefig(filename=path + "\\" +'point'+ "\\" + 'surface%s.obj' % pic_num)
     objFilePath = path + "\\" +'point' + "\\" + 'surface%s.obj'% pic_num
     mtlFilePath = path + "\\" +'point' + "\\" + 'surface%s.mtl'% pic_num
     csvFilePath = path + "\\" +'point' + "\\" + 'surface%s.csv'% pic_num
+    # print(2)
     # mlab.savefig(filename="Z:\\" + 'surface%s.obj' % pic_num)
     # objFilePath = "Z:\\"  + 'surface%s.obj'% pic_num
     # mtlFilePath = "Z:\\" + 'surface%s.mtl'% pic_num
     # csvFilePath = "Z:\\" +  'surface%s.csv'% pic_num
-    # 不能用close，否则会出错
+
+
+
+
+    # mlab.savefig(filename=path + "\\" + 'point' + "\\" + 'surface%s.png' % pic_num)
+    #ui端
+    if pic_num == image_len and model == 'single':
+        #绘图
+        mlab.view(azimuth=0, elevation=0, distance=None, focalpoint=None, roll=None, reset_roll=True, figure=None)
+
+
+
+
+        import cv2
+        path_temp = path + "\\" + 'point' + "\\" + 'surface%s.png'%pic_num
+        mlab.savefig(filename=path_temp)
+        pic_3d = cv2.imread(path_temp)
+        pic_3d=cv2.cvtColor(pic_3d, cv2.COLOR_BGR2RGB)
+        ui_obj.finish2(pic_3d)
+        # ui_obj.FinishSignal[obj].emit(pic_3d)
+        os.remove(path_temp)
+
+
     mlab.clf(figure=None)
     mlab.draw(figure=None)
+    # 不能用close，否则会出错
+    print('das')
+
+    #   ui端
+    if pic_num == image_len:
+        mlab.close(scene=None, all=True)
+
+
+
+    # while True:
+    #     time.sleep(3)
+    #     print('a')
     with open(objFilePath) as file:
         with open(csvFilePath,'w') as f:
             f.write(file.read().replace(" ",",").replace(r"//",","))
@@ -181,13 +221,13 @@ def leftpoint(point,shape_1):
 if __name__ == '__main__':
 
     # 火旋风
-    path =r"C:\Users\yhstc\Desktop\aaa\90\kw"
+    path =r"C:\Users\yhstc\Desktop\90\kw"
     poinst_3d = np.load(path+"\\" +'point'+"\\" +"point_3d_1.npy")
     I = poinst_3d[:, 3]  # 轮廓
     print(I.shape)
     #火旋风的，C:\Users\yhstc\Desktop\shiyan - 1\kw\point\point_3d_1.npy
     # signal_begin = ['4', '6', '9', '1920', '1200', '60', '60', '300', '-5', '5', '0', '60', '-5', '5']
-    signal_begin = ['4', '6', '9', '1920', '1200', '60', '300', '60', '-5', '5', '-4', '80', '-5', '5']
+    signal_begin = ['4', '6', '9', '1920', '1200', '30', '150', '30', '-5', '5', '-4', '80', '-5', '5']
     # signal_begin = ['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5']
 
     signal_begin_int = list(map(eval, signal_begin))
@@ -198,6 +238,6 @@ if __name__ == '__main__':
     # # print(I.shape,"ishape")
     # #
     # show(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d)
-    save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d,path,1)
+    save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d,path,1,1,'','')
 
     # # leftpoint(poinst_3d,shape_1)

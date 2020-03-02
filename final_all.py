@@ -4,19 +4,23 @@ from mianji import v
 from moni import png_dir
 from moni import yuzhi, baocun_csv, zhenghe_csv, zu_dir, show
 from progressbar import *
-
-
-def begin_cal(signal_begin, path):
+import time
+from PyQt5.QtWidgets import QApplication#ui设计
+from PyQt5 import QtCore
+def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
     # 0.如果需要调用手机相机，则调用phone_pic
 
+    model=signal_begin[-2]
     # 用于计算时间
     time_all = time.time()
-
+    te_zheng = signal_begin[-1]
+    signal_begin = signal_begin[:-2]
     # 将传入参数处理
     signal_begin_int = list(map(eval, signal_begin))
     # 参数赋值
-    drc, w, h, lenth, wedth, x_deta, y_deta, z_deta, x0, x1, y0, y1, z0, z1 = signal_begin_int
-
+    print(1111)
+    drc, w, h, lenth, wedth, x_deta, y_deta, z_deta, x0, x1, y0, y1, z0, z1,yu_zhi_num,scale_num = signal_begin_int
+    print(1111)
     # 1.实验组数 2.方向数，3.照片编号
     # 标定图片，返回相机序（方向）号及对应内外惨----2
 
@@ -25,7 +29,7 @@ def begin_cal(signal_begin, path):
     print(zu_path)
     # zu_all, zu_name = zu_dir.fenzu(zu_path, "*kw")
     # 实验组的路径和名字
-    zu_all, zu_name = zu_dir.fenzu(zu_path, "*kw")
+    zu_all, zu_name = zu_dir.fenzu(zu_path, "%s"%te_zheng)
 
     print(zu_path)
     # 标定路径
@@ -71,6 +75,7 @@ def begin_cal(signal_begin, path):
     a_zu = 0
     b_zu = 1
     for num_zu in range(a_zu, b_zu):
+
         print("组为", a_zu, b_zu - 1, num_zu)
 
         # 保存数组，保存的坐标值及对应亮度，二值化----1，3
@@ -93,7 +98,9 @@ def begin_cal(signal_begin, path):
         f_volum, f_volum_close = baocun_csv.dakai(path_02, "volum_%s" % zu_name[num_zu])
         f_area_3d, f_area_3d_close = baocun_csv.dakai(path_02, "area3d_%s" % zu_name[num_zu])
         # 深度循环，不是广度
-        for drc_num in range(1, drc):  # 方向数循环
+        # for drc_num in range(1, drc):  # 方向数循环
+
+        for drc_num in range(3,4):
             print("方向", drc_num)
             # for drc_num in range(3,4):  # 方向数循环,从2开始会有bug，下面去调投影条件
             objp = np.zeros((w * h, 3), np.float32)
@@ -110,10 +117,12 @@ def begin_cal(signal_begin, path):
             #
             # f_area.writerows([[now_time], ["index", "area"]])
 
-
+            print('标定完成-P')
             for fname in images:  # 标定
+                # ui设计
+                QApplication.processEvents()
                 img = cv2.imread(fname)
-                # img = cv2.resize(img, (lenth,wedth), interpolation=cv2.INTER_AREA)
+                # img = cv2.resize(img, (lenth,wedth), interpolation=cv2.INTER_AREA)<
                 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
                 size = gray.shape[::-1]
                 ret, corners = cv2.findChessboardCorners(gray, (w, h), None)
@@ -160,22 +169,38 @@ def begin_cal(signal_begin, path):
             # 读取图片，到时候改为视频
             pic_num = 0
             # pic_num = 714
-
+            print('标定完成P')
             # 图片总数
-            total_num = len(image_fangxiang) * (drc - 1)
+            total_num = len(image_fangxiang[drc_num]) * (drc - 1)
             # 进度条
-            widgets = ['[组-{}{}   方向-{}]'.format(num_zu, zu_name, drc_num), Percentage(), ' ', Bar('>'), ' ', Timer(),
+            widgets = ['[组-{}{}   方向-{}]'.format(num_zu, zu_name[num_zu], drc_num), Percentage(), ' ', Bar('>'), ' ', Timer(),
                        ' ', ETA()]
             pbar = ProgressBar(widgets=widgets, maxval=total_num).start()
+            print("进度条设置")
+            print(ui_obj)
+            #ui 进度条
+            if model == 'many':
+                _translate = QtCore.QCoreApplication.translate
+                #改组显示的名称
+                ui_2_obj.zu_name.setText(_translate("ManyWindow", "{}/{}/{}".format(num_zu, zu_name[num_zu], drc_num)))
 
+                ui_2_obj.progressBar.setRange(0, total_num)  # 设置进度条的范围
+
+            print("进度条设置完成")
             # 面积加强
             f_area, f_area_close = baocun_csv.dakai(path_02, "area_%s_%d" % (zu_name[num_zu], drc_num))  # 方向
             for pic in image_fangxiang[drc_num]:  # 循环图片
                 # for pic in image_1[drc_num][714:]:
                 pic_num += 1
                 #还可以加入组的图片个数
-                pbar.update((drc_num - 1) * len(image_fangxiang) + pic_num)
+                progress_update_data = (drc_num - 1) * len(image_fangxiang[drc_num]) + pic_num
+                pbar.update(progress_update_data)
                 # print((num_zu + 1) *(pic_num)*drc_num/ len(zu_all)/len(image_1)/drc_num)
+                print("进度条更新")
+                print(progress_update_data,total_num)
+                if model == 'many':
+                    ui_2_obj.progressBar.setValue(progress_update_data)
+                print("进度条更新完成")
                 frame = cv2.imread(pic)
                 frame = cv2.resize(frame, (lenth, wedth), interpolation=cv2.INTER_AREA)
 
@@ -188,7 +213,7 @@ def begin_cal(signal_begin, path):
                 # cv2.imshow("binary",binary)
                 # cv2.imshow("gray",gray)
 
-                cv2.waitKey(0)
+                # cv2.waitKey(0)
                 if drc_num == 1:
                     print("阈值化", time.time() - time_all)
                     time_all = time.time()
@@ -250,6 +275,8 @@ def begin_cal(signal_begin, path):
 
                 # 最耗时的，可以优化
                 for i in range(len(poinst_3d[:, :3])):
+                    #ui设计
+                    QApplication.processEvents()
                     imgpoints2, _ = cv2.projectPoints(poinst_3d[i][:3], rvecs[0], tvecs[0], mtx, dist)  # 注意参数要与摄像头对应
                     imgpoints2 = list(imgpoints2[0][0])
                     # print(imgpoints2)
@@ -312,7 +339,6 @@ def begin_cal(signal_begin, path):
 
                 if drc_num == drc - 1:
                     baocun_csv.baocun_1(f_volum, pic_num, volum)
-
                     # p像素个数
                     # 三维可视化,导出3d面积
                     I = poinst_3d[:, 3]
@@ -320,23 +346,36 @@ def begin_cal(signal_begin, path):
 
 
                     S = show.save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d, zu_all[num_zu],
-                                  pic_num)
-                    if S:
-                        baocun_csv.baocun_1(f_area_3d, pic_num, S)
-                    else:
-                        baocun_csv.baocun_1(f_area_3d, pic_num, 0)
+                                  pic_num, len(image_fangxiang[drc_num]), model, ui_obj)
+                    # print('a')
 
+                    baocun_csv.baocun_1(f_area_3d, pic_num, 0)
+                    # print('b')
                     if pic_num == len(image_fangxiang[drc_num]):
                         f_area_close.close()
                         zhenghe_csv.zhenghe("area_%s" % zu_name[num_zu], path_02)
+                        #像ui界面发射信号
+                        if model=='single':
+                            #体积,面积
+                            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                            img_trans = cv2.transpose(frame)#旋转
 
+                            img_flip0 = cv2.flip(img_trans, 0)#对称
+
+                            ui_obj.finish1([volum, S], img_flip0)
+                    # print('c')
             # 进度条结束
+                    print('传递参数')
+                    if model=='many':
+                        ui_obj.loading([volum, S,pic_num])
         pbar.finish()
-
     time_all = time.time() - time_all
     print(time_all)
     print("success")
-
+    if model=='many':
+        ui_obj.finish()
+    #为了给窗口刷新
+    return False
     # sys.exit(0)
 
 
@@ -345,10 +384,9 @@ def begin_cal(signal_begin, path):
 
     # 面积.aera(X, Y, Z)
 
-
 # 分辨率太小会影响标定
 if __name__ == '__main__':
     # begin_cal(['4', '6', '9', '1920', '1200', '50', '50', '150', '-5', '5', '0', '30', '-5', '5'],r"E:\shiyan")
-    begin_cal(['4', '6', '9', '1920', '1200', '60', '300', '60', '-5', '5', '-4', '80', '-5', '5'],
-              r"C:\Users\yhstc\Desktop\aaa\90")
+    begin_cal(['4', '6', '9', '1920', '1200', '30', '80', '30', '-5', '5', '-4', '80', '-5', '5','10','1','model','kw'],
+              r"C:\Users\yhstc\Desktop\90",'ui')
     # print(eval(str(10)+"i"))
