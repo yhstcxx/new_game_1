@@ -1,2 +1,0 @@
-1.先打开lin_detect设置路径和阈值
-2.打开read_modify

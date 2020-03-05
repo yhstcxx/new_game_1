@@ -98,9 +98,8 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
         f_volum, f_volum_close = baocun_csv.dakai(path_02, "volum_%s" % zu_name[num_zu])
         f_area_3d, f_area_3d_close = baocun_csv.dakai(path_02, "area3d_%s" % zu_name[num_zu])
         # 深度循环，不是广度
-        # for drc_num in range(1, drc):  # 方向数循环
-
-        for drc_num in range(3,4):
+        for drc_num in range(1, drc):  # 方向数循环
+        # for drc_num in range(3,4):
             print("方向", drc_num)
             # for drc_num in range(3,4):  # 方向数循环,从2开始会有bug，下面去调投影条件
             objp = np.zeros((w * h, 3), np.float32)
@@ -209,7 +208,7 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 # print(gray.shape)
                 # ret,binary = cv2.threshold(gray,90,255,cv2.THRESH_BINARY)#前面哪个是阈值，后面的是设定值
-                binary = yuzhi.img_binary(gray, lenth, wedth)
+                binary = yuzhi.img_binary(gray, lenth, wedth,yu_zhi_num)
                 # cv2.imshow("binary",binary)
                 # cv2.imshow("gray",gray)
 
@@ -338,6 +337,8 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
                 volum = v.vol(poinst_3d, y_deta, z_deta, points_numb)  # h后面加判断
 
                 if drc_num == drc - 1:
+                    #比例尺变化
+                    volum = volum*scale_num*scale_num*scale_num
                     baocun_csv.baocun_1(f_volum, pic_num, volum)
                     # p像素个数
                     # 三维可视化,导出3d面积
@@ -348,7 +349,7 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
                     S = show.save(I, shape_1, x0, x1, y0, y1, z0, z1, x_deta, y_deta, z_deta, poinst_3d, zu_all[num_zu],
                                   pic_num, len(image_fangxiang[drc_num]), model, ui_obj)
                     # print('a')
-
+                    S = S*scale_num*scale_num
                     baocun_csv.baocun_1(f_area_3d, pic_num, 0)
                     # print('b')
                     if pic_num == len(image_fangxiang[drc_num]):

@@ -132,7 +132,7 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
     try:
         # os.remove(objFilePath)
         os.remove(mtlFilePath)
-        # os.remove(csvFilePath)
+        os.remove(csvFilePath)
     except:
         pass
     print("保存表面积",time.time() - time_begin)

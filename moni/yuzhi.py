@@ -5,7 +5,7 @@ import numpy as np
 
 #阈值设置成10就行了，其他不用管
 
-def img_binary(gray,lenth,wedth):
+def img_binary(gray,lenth,wedth,yu_zhi_num=10):
     # frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_AREA)
     # # 二值化
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -13,7 +13,7 @@ def img_binary(gray,lenth,wedth):
 
 
 
-    s_max = (10, -10)
+    s_max = (yu_zhi_num, -10)
 
     # # ostu算法,可以用来分层计算
     # pixel_counts = np.zeros(256)
