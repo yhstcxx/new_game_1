@@ -99,19 +99,8 @@ class single_window(QtWidgets.QMainWindow,Ui_SingleWindow):
         single_Ui.area.setText(_translate("ManyWindow", "计算中..."))
         single_Ui.begin_cal.setEnabled(False)
         try:
-
-
-
-
-#         tem_single_emit= temp_val()
-# Process(target=final_all.begin_cal,
-#                      args=(self.list_begin, self.directory1, [tem_single_emit,id(self)]))
-
             final_all.begin_cal(self.list_begin,self.directory1,self)
-        except Exception as e:
-            #如果出错
-            import traceback
-            print(str(e),repr(e),e.message,traceback.format_exc())
+        except:
             QMessageBox.warning(self, '参数错误', '请输入正确参数和地址', QMessageBox.Yes)
         # temp_single_Ui=single_Ui
         # p2 = Process(target=final_all.begin_cal, args=(self.list_begin,self.directory1,single_Ui))

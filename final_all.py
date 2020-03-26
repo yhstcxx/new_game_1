@@ -97,10 +97,12 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
         # 体积和三维面积的写入
         f_volum, f_volum_close = baocun_csv.dakai(path_02, "volum_%s" % zu_name[num_zu])
         f_area_3d, f_area_3d_close = baocun_csv.dakai(path_02, "area3d_%s" % zu_name[num_zu])
-        # 深度循环，不是广度
-        # for drc_num in range(1, drc):  # 方向数循环
+        f_height,f_height_close = baocun_csv.dakai(path_02, "height_%s" % zu_name[num_zu])
 
-        for drc_num in range(3,4):
+        # 深度循环，不是广度
+        for drc_num in range(1, drc):  # 方向数循环
+        #
+        # for drc_num in range(3,4):
             print("方向", drc_num)
             # for drc_num in range(3,4):  # 方向数循环,从2开始会有bug，下面去调投影条件
             objp = np.zeros((w * h, 3), np.float32)
@@ -335,10 +337,13 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
 
                 # print(poinst_3d,"point_3d")
 
-                volum = v.vol(poinst_3d, y_deta, z_deta, points_numb)  # h后面加判断
-
+                #最后方向
                 if drc_num == drc - 1:
+                    # final_z为计算火焰高度
+                    volum,final_z = v.vol(poinst_3d, y_deta, z_deta, points_numb)
+
                     baocun_csv.baocun_1(f_volum, pic_num, volum)
+                    baocun_csv.baocun_1(f_height,pic_num,final_z)
                     # p像素个数
                     # 三维可视化,导出3d面积
                     I = poinst_3d[:, 3]
@@ -353,6 +358,9 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
                     # print('b')
                     if pic_num == len(image_fangxiang[drc_num]):
                         f_area_close.close()
+                        f_area_3d_close.close()
+                        f_height_close.close()
+                        f_volum_close.close()
                         zhenghe_csv.zhenghe("area_%s" % zu_name[num_zu], path_02)
                         #像ui界面发射信号
                         if model=='single':
