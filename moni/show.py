@@ -248,7 +248,7 @@ if __name__ == '__main__':
 
     # 火旋风
     path =r"G:\shiyan\fire_wirl_2\3.5kw_00_0"
-    path =r"C:\Users\yhstc\Desktop\11111\1_"
+    path =r"C:\Users\yhstc\Desktop\bbb\1_"
     poinst_3d = np.load(path+"\\" +'point'+"\\" +"point_3d_1.npy")
     I = poinst_3d[:, 3]  # 轮廓
     print(I.shape)

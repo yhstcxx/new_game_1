@@ -5,16 +5,17 @@ import numpy as np
 
 #阈值设置成10就行了，其他不用管
 #图片、尺寸、是否测试
-def img_binary(gray,lenth,wedth,text=None):
+def img_binary(gray,lenth,wedth,text=None,path=r'',drc_num=0):
     # frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_AREA)
     # # 二值化
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # print(gray.shape)
 
 
-
-    s_max = (10, -10)#改
-
+    #高阈值
+    s_max = (40, -10)#改
+    #低阈值
+    s_max2 = (10,-10)
     # # ostu算法,可以用来分层计算
     # pixel_counts = np.zeros(256)
     # for x in range(lenth):
@@ -49,17 +50,28 @@ def img_binary(gray,lenth,wedth,text=None):
     #         s_max = (threshold, g)
     #     # print(s_max)
     ret, binary = cv2.threshold(gray, s_max[0], 255, cv2.THRESH_BINARY)  # 前面哪个是阈值，后面的是设定值
+    ret2, binary2 = cv2.threshold(gray, s_max2[0], 255, cv2.THRESH_BINARY)
+    pic_y,pic_x=binary.shape
+    if drc_num !=0:#如果方向有影响，那么这里就要加入参数
+        xmin, ymin, xmax, ymax = np.load(path+'//'+'yuzhi_minrange_%s.npy'%drc_num)
+        for i in range(pic_x):
+            for j in range(pic_y):#燃烧器范围
+                if xmin<i<xmax and ymin<j<ymax :#燃烧器底部到火焰根部
+                    binary[j][i] =binary2[j][i]
+    # print(pic_x,pic_y)
 
+    # exit()
     if text:
         cv2.imshow("binary",binary)
         cv2.imshow("gray",gray)
     def erode(binary):
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))#改
         dst = cv2.erode(binary,kernel)
         # cv2.imshow("erode",dst)
         return dst
     def dilate(binary):
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))#改
         dst = cv2.dilate(binary,kernel)
         # cv2.imshow("dilate",dst)
         return dst
@@ -90,8 +102,8 @@ def img_binary(gray,lenth,wedth,text=None):
     return binary
 if __name__ == '__main__':
     # frame = cv2.imread(r"G:\shiyan\shiyan\shiyan-4-2.3kw\3\0047.bmp")
-    frame = cv2.imread(r"C:\Users\yhstc\Desktop\bbb\1_\1\0001.bmp")
-    frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_AREA)
+    frame = cv2.imread(r"F:\2020_6_21-23_shiyan\fangxinghuo1_17\10_\1\0001.bmp")
+    frame = cv2.resize(frame, (1920, 1200), interpolation=cv2.INTER_AREA)
     # 二值化
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    img_binary(gray,640,480,'text')
+    img_binary(gray,1920,1200,'text',path=r'F:\2020_6_21-23_shiyan\fangxinghuo1_17\10_',drc_num=0)

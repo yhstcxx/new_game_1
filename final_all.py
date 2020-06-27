@@ -72,7 +72,7 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
 
 
     # 自己设置组从哪个组开始
-    a_zu = 0
+    a_zu = 0#改
     b_zu = 1
 
     # 组循环
@@ -103,8 +103,8 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
         f_height_3d, f_height_3d_close = baocun_csv.dakai(path_02, "height_3d%s" % zu_name[num_zu])
         f_F,f_F_close = baocun_csv.dakai(path_02, "F_area_%s" % zu_name[num_zu])
         # 深度循环，不是广度
-        # for drc_num in range(1, drc):  # 方向数循环,从2开始会有bug，下面去调投影条件
-        for drc_num in [1,2,3,4,5]:#改
+        for drc_num in range(1, drc):  # 方向数循环,从2开始会有bug，下面去调投影条件
+        # for drc_num in [1,2,3,4,5]:#改
         #     if drc_num == 6 or drc_num == 3:
         #         continue
             print("方向", drc_num)
@@ -125,8 +125,8 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
             # 序列化：将Python对象转换成json字符串并存储到文件中
             try:
                 #获取标定信息
-                obj_points=np.load(path_02 + '//' + 'obj_points%s.npy' % drc_num)
-                img_points = np.load(path_02 + '//' + 'img_points%s.npy' % drc_num)
+                obj_points=np.load(path_biaoding + '//' + 'obj_points%s.npy' % drc_num)
+                img_points = np.load(path_biaoding + '//' + 'img_points%s.npy' % drc_num)
                 #获取size
                 for fname in images:  # 标定
                     img = cv2.imread(fname)
@@ -163,8 +163,8 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
                         # cv2.imshow('img', img)
                         # cv2.waitKey(0)
             if not BD_isok:
-                np.save(path_02+'//'+'obj_points%s.npy'%drc_num,obj_points)
-                np.save(path_02 + '//' + 'img_points%s.npy' % drc_num, img_points)
+                np.save(path_biaoding+'//'+'obj_points%s.npy'%drc_num,obj_points)
+                np.save(path_biaoding + '//' + 'img_points%s.npy' % drc_num, img_points)
 
 
                 #
@@ -239,7 +239,8 @@ def begin_cal(signal_begin, path, ui_obj,ui_2_obj=None):
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 # print(gray.shape)
                 # ret,binary = cv2.threshold(gray,90,255,cv2.THRESH_BINARY)#前面哪个是阈值，后面的是设定值
-                binary = yuzhi.img_binary(gray, lenth, wedth)
+                # binary = yuzhi.img_binary(gray, lenth, wedth,text=None)#改
+                binary = yuzhi.img_binary(gray, lenth, wedth, text=None,path=zu_all[num_zu],drc_num=drc_num)
                 # cv2.imshow("binary",binary)
                 # cv2.imshow("gray",gray)
 
@@ -396,7 +397,7 @@ if __name__ == '__main__':
     #           r"F:\2020_6_21-23_shiyan\fangxinghuo1_17", 'ui')
     begin_cal(['6', '8', '11', '1920', '1200', '50', '210', '50', '-10', '10', '-4', '60', '-10', '10', '10', '0.015',
                'model', '_'],
-              r"C:\Users\yhstc\Desktop\11111", 'ui')
+              r"C:\Users\yhstc\Desktop\bbb", 'ui')
     # begin_cal(
     #     ['4'-方向数目, '6', '9'-棋盘规格,  '1920', '1200'-像素, '50', '210', '50'-三维步长,
     #  '-10', '10', '-4', '80', '-10', '10'-三维起始点, '10'-阈值，自己设，不改, '1'-比例尺, 'model'-处理方式,'kw'-实验文件夹特征],
