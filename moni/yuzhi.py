@@ -15,7 +15,7 @@ def img_binary(gray,lenth,wedth,text=None,path=r'',drc_num=0):
     #高阈值
     s_max = (40, -10)#改
     #低阈值
-    s_max2 = (10,-10)
+    s_max2 = (10,-10)#改
     # # ostu算法,可以用来分层计算
     # pixel_counts = np.zeros(256)
     # for x in range(lenth):
@@ -51,6 +51,46 @@ def img_binary(gray,lenth,wedth,text=None,path=r'',drc_num=0):
     #     # print(s_max)
     ret, binary = cv2.threshold(gray, s_max[0], 255, cv2.THRESH_BINARY)  # 前面哪个是阈值，后面的是设定值
     ret2, binary2 = cv2.threshold(gray, s_max2[0], 255, cv2.THRESH_BINARY)
+
+    if text:
+        cv2.imshow("binary",binary)
+        cv2.imshow("gray",gray)
+    def erode(binary,rec):
+
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(rec,rec))
+        dst = cv2.erode(binary,kernel)
+        # cv2.imshow("erode",dst)
+        return dst
+    def dilate(binary,rec):
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(rec,rec))
+        dst = cv2.dilate(binary,kernel)
+        # cv2.imshow("dilate",dst)
+        return dst
+
+    dst_dilate1 = dilate(binary,5)#改
+    erode1 = erode(dst_dilate1,5)
+    dst_dilate2 = dilate(binary2,13)#改
+    erode2 = erode(dst_dilate2,13)
+    for i in range(lenth):
+        list1 = []
+        list2 = []
+        for j in range(wedth):
+            # print(binary[j][i])
+            if  binary[j][i]:
+                list1.append(j)
+            if binary2[j][i]:
+                list2.append(j)
+        #         print("yes")
+        # print(list)
+        for j in range(wedth):
+            try:
+                if (list1[0]<j<list1[-1]) and (not binary[j][i]):
+                    binary[j][i] = erode1[j][i]
+                if (list2[0] < j < list2[-1]) and (not binary2[j][i]):
+                    binary2[j][i] = erode2[j][i]
+            except:
+                pass
+
     pic_y,pic_x=binary.shape
     if drc_num !=0:#如果方向有影响，那么这里就要加入参数
         xmin, ymin, xmax, ymax = np.load(path+'//'+'yuzhi_minrange_%s.npy'%drc_num)
@@ -61,39 +101,7 @@ def img_binary(gray,lenth,wedth,text=None,path=r'',drc_num=0):
     # print(pic_x,pic_y)
 
     # exit()
-    if text:
-        cv2.imshow("binary",binary)
-        cv2.imshow("gray",gray)
-    def erode(binary):
 
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))#改
-        dst = cv2.erode(binary,kernel)
-        # cv2.imshow("erode",dst)
-        return dst
-    def dilate(binary):
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))#改
-        dst = cv2.dilate(binary,kernel)
-        # cv2.imshow("dilate",dst)
-        return dst
-
-    dst_dilate = dilate(binary)
-    erode = erode(dst_dilate)
-
-    for i in range(lenth):
-        list = []
-        for j in range(wedth):
-            # print(binary[j][i])
-            if  binary[j][i]:
-                list.append(j)
-        #         print("yes")
-        # print(list)
-        for j in range(wedth):
-            try:
-                if (list[0]<j<list[-1]) and (not binary[j][i]):
-                    binary[j][i] = erode[j][i]
-            except:
-                pass
-    #
     if text:
         cv2.imshow("finall",binary)
     # #
@@ -106,4 +114,4 @@ if __name__ == '__main__':
     frame = cv2.resize(frame, (1920, 1200), interpolation=cv2.INTER_AREA)
     # 二值化
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    img_binary(gray,1920,1200,'text',path=r'F:\2020_6_21-23_shiyan\fangxinghuo1_17\10_',drc_num=0)
+    img_binary(gray,1920,1200,'text',path=r'F:\2020_6_21-23_shiyan\fangxinghuo1_17\10_',drc_num=1)
