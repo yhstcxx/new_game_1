@@ -4,8 +4,8 @@ import numpy as np
 #阈值设置后，高斯降噪，中值滤波等，然后再改
 
 #阈值设置成10就行了，其他不用管
-
-def img_binary(gray,lenth,wedth):
+#图片、尺寸、是否测试
+def img_binary(gray,lenth,wedth,text=None):
     # frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_AREA)
     # # 二值化
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -13,7 +13,7 @@ def img_binary(gray,lenth,wedth):
 
 
 
-    s_max = (10, -10)
+    s_max = (10, -10)#改
 
     # # ostu算法,可以用来分层计算
     # pixel_counts = np.zeros(256)
@@ -50,16 +50,16 @@ def img_binary(gray,lenth,wedth):
     #     # print(s_max)
     ret, binary = cv2.threshold(gray, s_max[0], 255, cv2.THRESH_BINARY)  # 前面哪个是阈值，后面的是设定值
 
-    #
-    # cv2.imshow("binary",binary)
-    # cv2.imshow("gray",gray)
+    if text:
+        cv2.imshow("binary",binary)
+        cv2.imshow("gray",gray)
     def erode(binary):
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(13,13))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
         dst = cv2.erode(binary,kernel)
         # cv2.imshow("erode",dst)
         return dst
     def dilate(binary):
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(13,13))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
         dst = cv2.dilate(binary,kernel)
         # cv2.imshow("dilate",dst)
         return dst
@@ -82,14 +82,16 @@ def img_binary(gray,lenth,wedth):
             except:
                 pass
     #
-    # cv2.imshow("finall",binary)
+    if text:
+        cv2.imshow("finall",binary)
     # #
     cv2.waitKey(0)
     # cv2.destroyAllWindows()
     return binary
 if __name__ == '__main__':
-    frame = cv2.imread(r"C:\Users\yhstc\Desktop\2\0047.bmp")
+    # frame = cv2.imread(r"G:\shiyan\shiyan\shiyan-4-2.3kw\3\0047.bmp")
+    frame = cv2.imread(r"C:\Users\yhstc\Desktop\bbb\1_\1\0001.bmp")
     frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_AREA)
     # 二值化
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    img_binary(gray,640,480)
+    img_binary(gray,640,480,'text')

@@ -160,7 +160,7 @@ class Ui_SingleWindow(object):
 
     def retranslateUi(self, SingleWindow):
         _translate = QtCore.QCoreApplication.translate
-        SingleWindow.setWindowTitle(_translate("SingleWindow", "晓辉火焰三维特征分析软件-单幅火焰图像处理"))
+        SingleWindow.setWindowTitle(_translate("SingleWindow", "火焰三维瞬态特征分析软件-单幅火焰图像处理"))
         self.label_15.setText(_translate("SingleWindow", "结果："))
         self.LineDisplayGB.setTitle(_translate("SingleWindow", "火焰三维图像"))
         self.LineDisplayGB_2.setTitle(_translate("SingleWindow", "单方向火焰图像/示例"))

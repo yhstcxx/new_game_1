@@ -144,7 +144,7 @@ class Ui_ManyWindow(object):
 
     def retranslateUi(self, ManyWindow):
         _translate = QtCore.QCoreApplication.translate
-        ManyWindow.setWindowTitle(_translate("ManyWindow", "晓辉火焰三维特征分析软件-批量火焰图像处理"))
+        ManyWindow.setWindowTitle(_translate("ManyWindow", "火焰三维瞬态特征分析软件-批量火焰图像处理"))
         self.ensure.setText(_translate("ManyWindow", "确定参数"))
         self.begin_cal.setText(_translate("ManyWindow", "开始计算"))
         self.label_4.setText(_translate("ManyWindow", "参数设置"))

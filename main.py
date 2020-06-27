@@ -49,7 +49,7 @@ class Ui_mainWindow(object):
 
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
-        mainWindow.setWindowTitle(_translate("mainWindow", "晓辉火焰三维特征分析软件"))
+        mainWindow.setWindowTitle(_translate("mainWindow", "火焰三维瞬态特征分析软件"))
         self.label.setText(_translate("mainWindow", "单幅火焰图像处理"))
         self.label_2.setText(_translate("mainWindow", "批量火焰图像处理"))
         self.pushButton.setText(_translate("mainWindow", "进入单幅"))
