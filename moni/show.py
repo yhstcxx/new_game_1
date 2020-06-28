@@ -153,7 +153,9 @@ def save(I, shape_1, x0, x1, y0, y1,z0,z1, x_deta, y_deta,z_deta, poinst_3d,path
         pass
     for i in range(len_target):
         Fs2t[i] = Fi_S[i]/S#最后单位  kw/m2 ~1/k2   k =  1/num_scal
-    print(Fs2t[1])
+    if text:
+        # print(Fs2t[1])
+        pass
 
 
 
